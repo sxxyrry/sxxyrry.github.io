@@ -3,9 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World!</title>
+    <title>主页</title>
+    <style>
+        body{
+            background-color: rgb(221, 176, 255);
+        }
+        or-bar{
+            display: inline-flexbox;
+            margin-top: -20px;
+            padding: 10px;
+            height: 10px;
+            background-color: rgb(255, 255, 255)
+        }
+        or-bar button{
+            background-color: rgba(0, 0, 0, 0);
+            border: 0;
+            height: 0;
+        }
+        or-bar button:hover{
+            background-color: rgb(150, 255, 204);
+        }
+        or-bar :nth-child(1){
+            background-color: rgb(92, 184, 255);
+        }
+        *{
+            color: #55f1ff;
+        }
+        .fksj{
+            margin-inline-start: 2em;
+        }
+        /* te-ct{
+            display: block;
+        } */
+        te-ct :nth-child(2){
+            margin-inline-start: 2em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <h1>我的网页</h1>
+    <or-bar>
+        <button id="zy">主页</button>
+        <button id="XP">XRthon项目</button>
+    </or-bar>
+    <te-ct>
+        <p>BiliBili主页：</p>
+        <a href="https://space.bilibili.com/1532090388?spm_id_from=333.1007.0.0">BiliBili主页</a>
+    </te-ct>
+    <te-ct>
+        <p>youtube主页</p>
+        <a href="https://www.youtube.com/channel/UCSF-PayULAXgkM_22qqmP0w">youtube主页</a>
+    </te-ct>
+    <te-ct>
+        <p>X主页</p>
+        <a href="https://x.com/sxxyrry">X主页</a>
+    </te-ct>
+    <script>
+        document.getElementById("zy").onclick = function(){
+            window.location.href = "./";
+        }
+        document.getElementById("XP").onclick = function(){
+            window.location.href = "./XRthon_Project";
+        }
+    </script>
 </body>
 </html>
