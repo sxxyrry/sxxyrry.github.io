@@ -70,21 +70,20 @@
     <p></p>
 
     <audio id="am" src="./阿嬷.mp3"></audio>
-    <button onclick="document.getElementById('am').play()">播放 阿嬷 音乐</button>
-    <button onclick="document.getElementById('am').pause()">暂停 阿嬷 音乐</button>
-    <button onclick="cbyy('am')">重播 阿嬷 音乐</button>
-
-    <!-- <audio id="am" src="./阿嬷.mp3"></audio>
-    <button onclick="document.getElementById('am').play()">播放 阿嬷 音乐</button>
+    <!-- <button onclick="document.getElementById('am').play()">播放 阿嬷 音乐</button>
     <button onclick="document.getElementById('am').pause()">暂停 阿嬷 音乐</button>
     <button onclick="cbyy('am')">重播 阿嬷 音乐</button> -->
 
-    <script>
-        cbyy = function(adomID){
-            adom = document.getElementById(adomID)
-            adom.currentTime = 0
-            adom.play()
-        }
+    <audio id="fhcqfchd" src="./凤凰传奇翻唱《海底》.mp3"></audio>
+    <!-- <button onclick="document.getElementById('fhcqfchd').play()">播放 凤凰传奇翻唱《海底》 音乐</button>
+    <button onclick="document.getElementById('fhcqfchd').pause()">暂停 凤凰传奇翻唱《海底》嬷 音乐</button>
+    <button onclick="cbyy('fhcqfchd')">重播 凤凰传奇翻唱《海底》 音乐</button> -->
+
+    <script type="module">
+        import { CreateMusic } from "./musicthing.js"
+        // CreateMusic("am", "阿嬷");
+        CreateMusic(document.getElementById("am"), "am", '阿嬷')
+        CreateMusic(document.getElementById("fhcqfchd"), "fhcqfchd", '凤凰传奇翻唱《海底》')
     </script>
 </body>
 </html>
