@@ -1,89 +1,99 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>主页</title>
-    <style>
-        body{
-            background-color: rgb(255, 183, 90);
-        }
-        or-bar{
-            display: inline-flexbox;
-            margin-top: -20px;
-            padding: 10px;
-            height: 10px;
-            background-color: rgb(255, 255, 255)
-        }
-        button{
-            background-color: #00aaff;
-        }
-        or-bar button{
-            color: #00aaff;
-            background-color: rgba(0, 0, 0, 0);
-            border: 0;
-            height: 0;
-        }
-        or-bar :nth-child(1) button{
-            background-color: rgb(92, 184, 255);
-        }
-        or-bar button:hover{
-            background-color: rgb(150, 255, 204);
-        }
-        *{
-            color: #55f1ff;
-        }
-        .fksj{
-            margin-inline-start: 2em;
-        }
-        te-ct{
-            display: block;
-        }
-        te-ct :nth-child(2){
-            margin-inline-start: 2em;
-        }
-    </style>
+    <link rel="stylesheet" href="/css.css">
 </head>
 <body>
     <h1>我的网页</h1>
-    <or-bar>
-        <a href="/"><button id="zy">主页</button></a>
-        <a href="/XRthon_Project"><button id="XP">XRthon项目</button></a>
-    </or-bar>
-    <te-ct>
-        <p>BiliBili主页：</p>
-        <a href="https://space.bilibili.com/1532090388?spm_id_from=333.1007.0.0">BiliBili主页</a>
-    </te-ct>
-    <te-ct>
-        <p>youtube主页：</p>
-        <a href="https://www.youtube.com/channel/UCSF-PayULAXgkM_22qqmP0w">youtube主页</a>
-    </te-ct>
-    <te-ct>
-        <p>X主页：</p>
-        <a href="https://x.com/sxxyrry">X主页</a>
-    </te-ct>
-    <te-ct>
-        <p>github主页：</p>
-        <a href="https://github.com/sxxyrry">github主页</a>
-    </te-ct>
-
+    
     <p></p>
 
+    <or-bar>
+        <a href="/"><button>主页</button></a>
+        <a href="/XRthon_Project"><button>XRthon项目</button></a>
+        
+        <a href="/Background image 300x150.png">
+            <button>
+                <img class="logo" src="/Background image 300x150.png" alt="Background image 300x150.png">
+            </button>
+        </a>
+
+    </or-bar>
+
+    <card-pretty>
+        <content-pretty>
+            Hi!<br>
+            这里是是星星与然然呀！<br>
+            大家好！<br>
+            想联系我？<br>
+            发邮件到sxxyrry_23xr@163.com<br>
+            <a href="mailto:sxxyrry_23xr@163.com?subject=联系&body=你好，我想联系你。"><button>触发邮箱写信</button></a>
+        </content-pretty>
+    </card-pretty>
+
+    <s-c>
+        
+        <te-ct>
+            <p>BiliBili主页：</p>
+            <a href="https://space.bilibili.com/1532090388?spm_id_from=333.1007.0.0"><button>BiliBili主页</button></a>
+        </te-ct>
+        <te-ct>
+            <p>youtube主页：</p>
+            <a href="https://www.youtube.com/channel/UCSF-PayULAXgkM_22qqmP0w"><button>youtube主页</button></a>
+        </te-ct>
+        <te-ct>
+            <p>X主页：</p>
+            <a href="https://x.com/sxxyrry"><button>X主页</button></a>
+        </te-ct>
+        <te-ct>
+            <p>github主页：</p>
+            <a href="https://github.com/sxxyrry"><button>github主页</button></a>
+        </te-ct>
+        <te-ct>
+            <p>爱发电主页：</p>
+            <a href="https://ifdian.net/a/__sxxyrry__"><button>爱发电主页</button></a>
+        </te-ct>
+
+    </s-c>
+
+    <!-- <p></p> -->
+
+    <h2>我喜欢的音乐</h2>
+
     <audio id="am" src="./阿嬷.mp3"></audio>
-    <!-- <button onclick="document.getElementById('am').play()">播放 阿嬷 音乐</button>
-    <button onclick="document.getElementById('am').pause()">暂停 阿嬷 音乐</button>
-    <button onclick="cbyy('am')">重播 阿嬷 音乐</button> -->
 
     <audio id="fhcqfchd" src="./凤凰传奇翻唱《海底》.mp3"></audio>
-    <!-- <button onclick="document.getElementById('fhcqfchd').play()">播放 凤凰传奇翻唱《海底》 音乐</button>
-    <button onclick="document.getElementById('fhcqfchd').pause()">暂停 凤凰传奇翻唱《海底》嬷 音乐</button>
-    <button onclick="cbyy('fhcqfchd')">重播 凤凰传奇翻唱《海底》 音乐</button> -->
+
+    <audio id="lf" src="./life force.mp3"></audio>
+
+    <audio id="gxfc" src="./恭喜发财.mp3"></audio>
+
+    <audio id="ltynhnwhdjj" src="./【洛天依原创】女孩你为何踮脚尖（同人专辑《平行四界II》收录曲）.mp3"></audio>
 
     <script type="module">
-        import { CreateMusic } from "./musicthing.js"
-        // CreateMusic("am", "阿嬷");
-        CreateMusic(document.getElementById("am"), "am", '阿嬷')
-        CreateMusic(document.getElementById("fhcqfchd"), "fhcqfchd", '凤凰传奇翻唱《海底》')
+        import { CreateMusicControlBtn } from "./musicthing.js"
+        CreateMusicControlBtn(document.getElementById("am"), "am", '阿嬷')
+        CreateMusicControlBtn(document.getElementById("fhcqfchd"), "fhcqfchd", '凤凰传奇翻唱《海底》')
+        CreateMusicControlBtn(document.getElementById("lf"), "lf", 'life force')
+        CreateMusicControlBtn(document.getElementById("gxfc"), "gxfc", '恭喜发财')
+        CreateMusicControlBtn(document.getElementById("ltynhnwhdjj"), "ltynhnwhdjj", '【洛天依】女孩你为何踮脚尖')
     </script>
+
+    <!-- <s-v>
+    </s-v> -->
+
+    <!-- <card-pretty>
+        <content-pretty>
+            < !-- <h1>h</h1> -- >
+        </content-pretty>
+    </card-pretty> -->
+
 </body>
 </html>

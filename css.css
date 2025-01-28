@@ -1,0 +1,87 @@
+body{
+    background-color: rgb(255, 183, 90);
+}
+or-bar{
+    display: inline-flexbox;
+    margin-top: -20px;
+    padding: 10px;
+    height: 10px;
+    background-color: rgb(255, 255, 255)
+}
+button{
+    background-color: #00aaff;
+}
+button:hover{
+    background-color: #60caff;
+}
+button:active{
+    background-color: #005783;
+}
+or-bar button{
+    color: #00aaff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    height: 0;
+}
+or-bar :nth-child(1) button{
+    background-color: rgb(92, 184, 255);
+}
+or-bar button:hover{
+    background-color: rgb(150, 255, 204);
+}
+*{
+    color: #55f1ff;
+}
+.fksj{
+    margin-inline-start: 2em;
+}
+te-ct{
+    display: block;
+}
+te-ct :nth-child(2){
+    margin-inline-start: 2em;
+}
+card-pretty{
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    color: #333;
+    line-height: 1.8;
+    border-radius: 23px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #ff4d20 0px 10px,
+        #fff 10px 20px,
+        #00a6ff 20px 30px,
+        #fff 30px 40px
+    ) -23px -23px/200% 200%;
+    padding: 10px;
+    transition: 0.23s;
+}
+card-pretty:hover{
+    background-position: 0 0;
+}
+card-pretty content-pretty{
+    display: block;
+    background: #fff;
+    border-radius: 23px;
+    text-align: center;
+    background: linear-gradient(
+        -45deg,
+        #ff2020,
+        #006eff
+    );
+}
+img.logo{
+    width: 30px;
+    height: 15px;
+}
+s-c{
+    display: inline-flex;
+}
+s-c *{
+    display: inline-flexbox;
+}
+s-v{
+    display: block;
+}
