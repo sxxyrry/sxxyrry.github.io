@@ -17,6 +17,8 @@ export function CreateMusicControlBtn(audioDom, audioDomID, musicName) {
     // 创建一个容器来放置按钮
     var buttonContainer = document.createElement("div");
     buttonContainer.className = `music-controls ${audioDomID}`; // 添加类名
+    buttonContainer.id = `${audioDomID}-container`;
+    // buttonContainer.id
     // 使用模板字符串创建按钮
     const createButton = (label, className, action) => {
         var btn = document.createElement("button");
@@ -47,6 +49,8 @@ export function CreateMusicControlBtn(audioDom, audioDomID, musicName) {
     buttonContainer.appendChild(replaybtn);
     var pDom = document.createElement("p")
     buttonContainer.appendChild(pDom);
+    
+    buttonContainer.id = `${audioDomID}-container`;
     // 将容器添加到父节点，并在audioDom之后一个元素
     audioDom.parentNode.insertBefore(buttonContainer, audioDom.nextSibling);
 }

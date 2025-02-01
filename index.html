@@ -75,6 +75,12 @@
 
     <audio id="ltynhnwhdjj" src="./【洛天依原创】女孩你为何踮脚尖（同人专辑《平行四界II》收录曲）.mp3"></audio>
 
+    <audio id="comfortable" src="./comfortable.wav"></audio>
+
+    <audio id="exigent" src="./exigent.wav"></audio>
+
+    <audio id="sad" src="./sad.wav"></audio>
+
     <script type="module">
         import { CreateMusicControlBtn } from "./musicthing.js"
         CreateMusicControlBtn(document.getElementById("am"), "am", '阿嬷')
@@ -82,6 +88,78 @@
         CreateMusicControlBtn(document.getElementById("lf"), "lf", 'life force')
         CreateMusicControlBtn(document.getElementById("gxfc"), "gxfc", '恭喜发财')
         CreateMusicControlBtn(document.getElementById("ltynhnwhdjj"), "ltynhnwhdjj", '【洛天依】女孩你为何踮脚尖')
+        CreateMusicControlBtn(document.getElementById("comfortable"), "comfortable", 'comfortable')
+        CreateMusicControlBtn(document.getElementById("exigent"), "exigent", 'exigent')
+        CreateMusicControlBtn(document.getElementById("sad"), "sad", 'sad')
+
+        function _some(audioDomID, author, softwareUsed){
+            var music_controls = document.getElementsByClassName(`music-controls ${audioDomID}`)[0]
+
+            var pDom = music_controls.getElementsByTagName("p")[2]
+            pDom.innerHTML = `&nbsp;Created by ${author} Used software: ${softwareUsed}`
+            pDom.style = "display: inline-block; margin: 0px;"
+
+            var NewpDom = document.createElement("p")
+
+            music_controls.appendChild(NewpDom)
+        }
+
+        _some("comfortable", "sxxyrry", "bandlab")
+        _some("exigent", "sxxyrry", "bandlab")
+        _some("sad", "sxxyrry", "bandlab")
+    </script>
+
+    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=edd5c536-badf-ef11-88f6-6045bd3473c0" \
+    allowfullscreen></iframe>
+
+    <p></p>
+
+    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=c7b9a918-badf-ef11-88f6-6045bd3473c0" \
+    allowfullscreen></iframe>
+
+    <p></p>
+
+    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=49966ad1-a8df-ef11-88f6-6045bd3473c0" \
+    allowfullscreen></iframe>
+
+    <h2>代码雨</h2>
+
+    <div>
+        <div>
+            <button id="CodeRain-btn-start">开始</button>
+            <button id="CodeRain-btn-stop">停止</button>
+        </div>
+
+        <p></p>
+
+        <canvas id="CodeRain"></canvas>
+    </div>
+
+    <script type="module">
+        import CodeRain from "./CodeRain.js";
+        const { Running, draw, stop } = CodeRain;
+
+        var startbtn = document.getElementById('CodeRain-btn-start');
+        var endbtn = document.getElementById('CodeRain-btn-stop');
+        var cvs = document.getElementById('CodeRain');
+
+        startbtn.onclick = () => {
+            Running.value = true;
+            draw();
+        }
+
+        endbtn.onclick = () => {
+            Running.value = false;
+            stop()
+        }
+
+        window.addEventListener("resize", () => {
+            const width = window.innerWidth * devicePixelRatio / 2,
+                height = window.innerHeight * devicePixelRatio / 2;
+
+            cvs.width = width;
+            cvs.height = height;
+        });
     </script>
 
     <!-- <s-v>
@@ -93,7 +171,7 @@
         </content-pretty>
     </card-pretty> -->
 
-    <script>
+    <!-- <script>
         alert('新年快乐！Happy New Year!')
         alert('凛冬散尽 星河长明 新的一年 万事顺遂.\n\
 🎊🌈✨万家团圆的除夕夜，会带着希望，开启新年\n\
@@ -115,7 +193,7 @@ wish you happiness and prperity in the coming year！\n\
 祝大家新年快乐，万事如意\n\
 ┗━━━━━━━━[福][福]┛\n\
 ʕ•̫͡•ʔ❤ʕ•̫͡•ʔ除夕夜快乐，好心情正常营业，烦心事永远打烊')
-    </script>
+    </script> -->
 
 </body>
 </html>
