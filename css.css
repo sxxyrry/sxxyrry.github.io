@@ -1,87 +1,203 @@
-body{
-    background-color: rgb(255, 183, 90);
+body {
+  background-color: #ffb75a;
 }
-or-bar{
-    display: inline-flexbox;
-    margin-top: -20px;
-    padding: 10px;
-    height: 10px;
-    background-color: rgb(255, 255, 255)
+or-bar {
+  display: inline-flexbox;
+  margin-top: -20px;
+  padding: 10px;
+  height: 10px;
+  background-color: #ffffff;
 }
-button{
-    background-color: #00aaff;
+button {
+  background-color: #00aaff;
 }
-button:hover{
-    background-color: #60caff;
+button:hover {
+  background-color: #60caff;
 }
-button:active{
-    background-color: #005783;
+button:active {
+  background-color: #005783;
 }
-or-bar button{
-    color: #00aaff;
-    background-color: rgba(0, 0, 0, 0);
-    border: 0;
-    height: 0;
+or-bar button {
+  color: #00aaff;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  height: 0;
 }
-or-bar :nth-child(1) button{
-    background-color: rgb(92, 184, 255);
+or-bar :nth-child(1) button {
+  background-color: #5cb8ff;
 }
-or-bar button:hover{
-    background-color: rgb(150, 255, 204);
+or-bar button:hover {
+  background-color: #96ffcc;
 }
-*{
-    color: #55f1ff;
+* {
+  color: #55f1ff;
 }
-.fksj{
-    margin-inline-start: 2em;
+.fksj {
+  margin-inline-start: 2em;
 }
-te-ct{
-    display: block;
+te-ct {
+  display: block;
 }
-te-ct :nth-child(2){
-    margin-inline-start: 2em;
+te-ct :nth-child(2) {
+  margin-inline-start: 2em;
 }
-card-pretty{
-    display: block;
-    width: 300px;
-    margin: 0 auto;
-    color: #333;
-    line-height: 1.8;
-    border-radius: 23px;
-    background: repeating-linear-gradient(
-        -45deg,
-        #ff4d20 0px 10px,
-        #fff 10px 20px,
-        #00a6ff 20px 30px,
-        #fff 30px 40px
-    ) -23px -23px/200% 200%;
-    padding: 10px;
-    transition: 0.23s;
+card-pretty {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  color: #333;
+  line-height: 1.8;
+  border-radius: 23px;
+  background: repeating-linear-gradient(-45deg, #ff4d20 0px 10px, #fff 10px 20px, #00a6ff 20px 30px, #fff 30px 40px) -23px -23px/200% 200%;
+  padding: 10px;
+  transition: 0.23s;
 }
-card-pretty:hover{
-    background-position: 0 0;
+card-pretty:hover {
+  background-position: 0 0;
 }
-card-pretty content-pretty{
-    display: block;
-    background: #fff;
-    border-radius: 23px;
-    text-align: center;
-    background: linear-gradient(
-        -45deg,
-        #ff2020,
-        #006eff
-    );
+card-pretty content-pretty {
+  display: block;
+  background: #fff;
+  border-radius: 23px;
+  text-align: center;
+  background: linear-gradient(-45deg, #ff2020, #006eff);
 }
-img.logo{
-    width: 30px;
-    height: 15px;
+img.logo {
+  width: 30px;
+  height: 15px;
 }
-s-c{
-    display: inline-flex;
+s-c {
+  display: inline-flex;
 }
-s-c *{
-    display: inline-flexbox;
+s-c * {
+  display: inline-flexbox;
 }
-s-v{
-    display: block;
+s-v {
+  display: block;
+}
+.loading {
+  width: 150px;
+  height: 150px;
+  margin: 50px auto;
+  position: relative;
+  border-radius: 50%;
+  outline: 10x solid #fff;
+}
+.loading .dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -10px / 2 !important;
+  margin-top: -10px / 2 !important;
+  background: red;
+}
+.dot:nth-child(1) {
+  transform: rotate(360deg / 36 * 1) translateY(-150px/2) !important;
+}
+.dot:nth-child(2) {
+  transform: rotate(360deg / 36 * 2) translateY(-150px/2) !important;
+}
+.dot:nth-child(3) {
+  transform: rotate(360deg / 36 * 3) translateY(-150px/2) !important;
+}
+.dot:nth-child(4) {
+  transform: rotate(360deg / 36 * 4) translateY(-150px/2) !important;
+}
+.dot:nth-child(5) {
+  transform: rotate(360deg / 36 * 5) translateY(-150px/2) !important;
+}
+.dot:nth-child(6) {
+  transform: rotate(360deg / 36 * 6) translateY(-150px/2) !important;
+}
+.dot:nth-child(7) {
+  transform: rotate(360deg / 36 * 7) translateY(-150px/2) !important;
+}
+.dot:nth-child(8) {
+  transform: rotate(360deg / 36 * 8) translateY(-150px/2) !important;
+}
+.dot:nth-child(9) {
+  transform: rotate(360deg / 36 * 9) translateY(-150px/2) !important;
+}
+.dot:nth-child(10) {
+  transform: rotate(360deg / 36 * 10) translateY(-150px/2) !important;
+}
+.dot:nth-child(11) {
+  transform: rotate(360deg / 36 * 11) translateY(-150px/2) !important;
+}
+.dot:nth-child(12) {
+  transform: rotate(360deg / 36 * 12) translateY(-150px/2) !important;
+}
+.dot:nth-child(13) {
+  transform: rotate(360deg / 36 * 13) translateY(-150px/2) !important;
+}
+.dot:nth-child(14) {
+  transform: rotate(360deg / 36 * 14) translateY(-150px/2) !important;
+}
+.dot:nth-child(15) {
+  transform: rotate(360deg / 36 * 15) translateY(-150px/2) !important;
+}
+.dot:nth-child(16) {
+  transform: rotate(360deg / 36 * 16) translateY(-150px/2) !important;
+}
+.dot:nth-child(17) {
+  transform: rotate(360deg / 36 * 17) translateY(-150px/2) !important;
+}
+.dot:nth-child(18) {
+  transform: rotate(360deg / 36 * 18) translateY(-150px/2) !important;
+}
+.dot:nth-child(19) {
+  transform: rotate(360deg / 36 * 19) translateY(-150px/2) !important;
+}
+.dot:nth-child(20) {
+  transform: rotate(360deg / 36 * 20) translateY(-150px/2) !important;
+}
+.dot:nth-child(21) {
+  transform: rotate(360deg / 36 * 21) translateY(-150px/2) !important;
+}
+.dot:nth-child(22) {
+  transform: rotate(360deg / 36 * 22) translateY(-150px/2) !important;
+}
+.dot:nth-child(23) {
+  transform: rotate(360deg / 36 * 23) translateY(-150px/2) !important;
+}
+.dot:nth-child(24) {
+  transform: rotate(360deg / 36 * 24) translateY(-150px/2) !important;
+}
+.dot:nth-child(25) {
+  transform: rotate(360deg / 36 * 25) translateY(-150px/2) !important;
+}
+.dot:nth-child(26) {
+  transform: rotate(360deg / 36 * 26) translateY(-150px/2) !important;
+}
+.dot:nth-child(27) {
+  transform: rotate(360deg / 36 * 27) translateY(-150px/2) !important;
+}
+.dot:nth-child(28) {
+  transform: rotate(360deg / 36 * 28) translateY(-150px/2) !important;
+}
+.dot:nth-child(29) {
+  transform: rotate(360deg / 36 * 29) translateY(-150px/2) !important;
+}
+.dot:nth-child(30) {
+  transform: rotate(360deg / 36 * 30) translateY(-150px/2) !important;
+}
+.dot:nth-child(31) {
+  transform: rotate(360deg / 36 * 31) translateY(-150px/2) !important;
+}
+.dot:nth-child(32) {
+  transform: rotate(360deg / 36 * 32) translateY(-150px/2) !important;
+}
+.dot:nth-child(33) {
+  transform: rotate(360deg / 36 * 33) translateY(-150px/2) !important;
+}
+.dot:nth-child(34) {
+  transform: rotate(360deg / 36 * 34) translateY(-150px/2) !important;
+}
+.dot:nth-child(35) {
+  transform: rotate(360deg / 36 * 35) translateY(-150px/2) !important;
+}
+.dot:nth-child(36) {
+  transform: rotate(360deg / 36 * 36) translateY(-150px/2) !important;
 }
