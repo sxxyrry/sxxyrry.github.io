@@ -23,9 +23,6 @@ or-bar button {
   border: 0;
   height: 0;
 }
-or-bar :nth-child(1) button {
-  background-color: #5cb8ff;
-}
 or-bar button:hover {
   background-color: #96ffcc;
 }
@@ -74,6 +71,15 @@ s-c * {
 }
 s-v {
   display: block;
+}
+card-card{
+  display: block;
+  padding: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  margin-inline-start: 10px;
+  margin-block-start: 10px;
+  line-height: 1rem;
+  width: 50%;
 }
 .loading {
   width: 150px;
