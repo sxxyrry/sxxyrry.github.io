@@ -15,7 +15,7 @@
     <script>
         fetch("./README.md").then(response => response.text()).then(text => {
             for(let i = 0; i < text.split("\n").length; i++){
-                const line = text.split("\n")[i];
+                let line = text.split("\n")[i];
                 const pDom = document.createElement("p");
                 if(line.length === 1){
                     continue;
@@ -66,6 +66,12 @@
                     const hrDom = document.createElement("hr");
                     hrDom.style.border = "1px solid #55f1ff";
                     document.getElementById("README").appendChild(hrDom)
+                    continue;
+                }
+                else if(line.startsWith("'")){
+                    const preDom = document.createElement("pre");
+                    preDom.innerText = line.substring(1);
+                    document.getElementById("README").appendChild(preDom);
                     continue;
                 }
                 pDom.innerText = line;

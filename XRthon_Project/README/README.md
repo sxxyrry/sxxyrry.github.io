@@ -38,6 +38,24 @@
 
 #### 使用“quit()”结束程序的运行。
 
+#### 使用“
+
+'def_func name{args}:
+'    # 代码
+'END def_func name{args}:
+
+#### ”创建一个名为“name”的函数，其参数为“args”。
+
+#### 使用“name(args)”运行名为“name”的函数，该函数具有参数“args”。
+
+#### 使用“
+
+'python {args}：
+'    # Python代码
+'END python {args}:
+
+#### ”创建和运行python代码，并具有参数‘args’（提示：‘args’参数已在前面定义）。
+
 ### 怎么运行 XRthon 代码？
 
 #### 文件
@@ -117,6 +135,24 @@
 #### Use "import()" to import a module.
 
 #### Use "quit()" to end the run of your program.
+
+#### Use "
+
+'def_func name{args}:
+'    # Code
+'END def_func name{args}:
+
+#### " to create a function named 'name' and has arguments 'args'.
+
+#### Use "name(args)" to run a function named 'name' and has arguments 'args'.
+
+#### Use "
+
+'python {args}:
+'    # Python Code
+'END python {args}:
+
+#### " to create and run a python code, and has arguments 'args' (Tips: The 'args' parameter is defined earlier).
 
 ### How to Run XRthon Code?
 
