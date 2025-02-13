@@ -20,7 +20,49 @@
                 if(line.length === 1){
                     continue;
                 }
-                if(line.startsWith("---") && line.length === 4){
+                else if(line.startsWith("# ")){
+                    const Dom = document.createElement("h1");
+                    Dom.innerText = line.substring(2);
+                    document.getElementById("README").appendChild(Dom);
+                    continue;
+                }
+                else if(line.startsWith("## ")){
+                    const Dom = document.createElement("h2");
+                    Dom.innerText = line.substring(3);
+                    document.getElementById("README").appendChild(Dom);
+                    continue;
+                }
+                else if(line.startsWith("### ")){
+                    const Dom = document.createElement("h3");
+                    Dom.innerText = line.substring(4);
+                    document.getElementById("README").appendChild(Dom);
+                    continue;
+                }
+                else if(line.startsWith("#### ")){
+                    const Dom = document.createElement("h4");
+                    Dom.innerText = line.substring(5);
+                    document.getElementById("README").appendChild(Dom);
+                    continue;
+                }
+                else if(line.startsWith("##### ")){
+                    const Dom = document.createElement("h5");
+                    Dom.innerText = line.substring(6);
+                    document.getElementById("README").appendChild(Dom);
+                    continue;
+                }
+                else if(line.startsWith("###### ")){
+                    const Dom = document.createElement("h6");
+                    Dom.innerText = line.substring(7);
+                    document.getElementById("README").appendChild(Dom);
+                    continue;
+                }
+                else if(line.startsWith("####### ")){
+                    const Dom = document.createElement("h7");
+                    Dom.innerText = line.substring(8);
+                    document.getElementById("README").appendChild(Dom);
+                    continue;
+                }
+                else if(line.startsWith("---") && line.length === 4){
                     const hrDom = document.createElement("hr");
                     hrDom.style.border = "1px solid #55f1ff";
                     document.getElementById("README").appendChild(hrDom)
