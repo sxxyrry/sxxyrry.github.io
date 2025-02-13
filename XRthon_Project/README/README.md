@@ -18,6 +18,26 @@
 
 #### 看帮助文本
 
+### 帮助文本
+
+#### 使用“print()”输出文本。
+
+#### ""是一个字符串。
+
+#### ''是一个字符串。
+
+#### 1是一个数字。
+
+#### 使用“input()”获取输入。
+
+#### 使用“name=value”设置变量。
+
+#### 使用“name=input()”获取输入。
+
+#### 使用“import(name)”导入模块。
+
+#### 使用“quit()”结束程序的运行。
+
 ### 怎么运行 XRthon 代码？
 
 #### 文件
@@ -77,6 +97,26 @@
 ### Syntax
 
 #### Refer to the help text
+
+### Help Text
+
+#### Use "print()" to output text.
+
+#### "" is a string.
+
+#### '' is a string.
+
+#### 1 is a number.
+
+#### Use "input()" to get input.
+
+#### Use "name = value" to set a variable.
+
+#### Use "name = input()" to get input.
+
+#### Use "import()" to import a module.
+
+#### Use "quit()" to end the run of your program.
 
 ### How to Run XRthon Code?
 
