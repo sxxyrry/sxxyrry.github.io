@@ -13,7 +13,7 @@
 <body>
     <card-card id="xs"></card-card>
     <script>
-        async function renderREADME() {
+        async function renderMD() {
             try {
                 const response = await fetch('./穿越的程序员2：代码修仙.md');
                 if (!response.ok) {
@@ -40,7 +40,7 @@
         // 加载 marked.js 库
         const script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
-        script.onload = renderREADME;
+        script.onload = renderMD;
         document.head.appendChild(script);
     </script>
     <a href="./../"><button>返回</button></a>

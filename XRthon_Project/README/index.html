@@ -29,7 +29,7 @@
             return decoder.decode(bytes);
         }
 
-        async function renderREADME() {
+        async function renderMD() {
             try {
                 const owner = 'sxxyrry';
                 const repo = 'XRthon';
@@ -54,7 +54,7 @@
         // 加载 marked.js 库
         const script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
-        script.onload = renderREADME;
+        script.onload = renderMD;
         document.head.appendChild(script);
     </script>
     <a href="./../"><button>返回</button></a>
