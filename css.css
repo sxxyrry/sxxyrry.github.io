@@ -3,9 +3,9 @@ body {
 }
 or-bar {
   display: inline-flexbox;
-  margin-top: -20px;
-  padding: 10px;
-  height: 10px;
+  /* margin-top: -20px; */
+  padding: 5px;
+  /* height: 10px; */
   background-color: #ffffff;
 }
 button {
@@ -42,6 +42,7 @@ card-pretty {
   display: block;
   width: 300px;
   margin: 0 auto;
+  margin-top: 25px;
   color: #333;
   line-height: 1.8;
   border-radius: 23px;

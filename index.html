@@ -14,6 +14,11 @@
         }
     </style>
     <link rel="stylesheet" href="/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 </head>
 <body>
     <h1>我的网页</h1>
@@ -41,30 +46,30 @@
         </content-pretty>
     </card-pretty>
 
-    <s-c>
+    <!-- <s-c> -->
         
-        <te-ct>
-            <p>BiliBili主页：</p>
-            <a href="https://space.bilibili.com/1532090388?spm_id_from=333.1007.0.0"><button>BiliBili主页</button></a>
-        </te-ct>
-        <te-ct>
-            <p>youtube主页：</p>
-            <a href="https://www.youtube.com/channel/UCSF-PayULAXgkM_22qqmP0w"><button>youtube主页</button></a>
-        </te-ct>
-        <te-ct>
-            <p>X主页：</p>
-            <a href="https://x.com/sxxyrry"><button>X主页</button></a>
-        </te-ct>
-        <te-ct>
-            <p>github主页：</p>
-            <a href="https://github.com/sxxyrry"><button>github主页</button></a>
-        </te-ct>
-        <te-ct>
-            <p>爱发电主页：</p>
-            <a href="https://ifdian.net/a/__sxxyrry__"><button>爱发电主页</button></a>
-        </te-ct>
+    <te-ct>
+        <p>BiliBili主页：</p>
+        <a href="https://space.bilibili.com/1532090388?spm_id_from=333.1007.0.0"><button>BiliBili主页</button></a>
+    </te-ct>
+    <te-ct>
+        <p>youtube主页：</p>
+        <a href="https://www.youtube.com/channel/UCSF-PayULAXgkM_22qqmP0w"><button>youtube主页</button></a>
+    </te-ct>
+    <te-ct>
+        <p>X主页：</p>
+        <a href="https://x.com/sxxyrry"><button>X主页</button></a>
+    </te-ct>
+    <te-ct>
+        <p>github主页：</p>
+        <a href="https://github.com/sxxyrry"><button>github主页</button></a>
+    </te-ct>
+    <te-ct>
+        <p>爱发电主页：</p>
+        <a href="https://ifdian.net/a/__sxxyrry__"><button>爱发电主页</button></a>
+    </te-ct>
 
-    </s-c>
+    <!-- </s-c> -->
 
     <p></p>
 
@@ -73,6 +78,28 @@
     <button onclick="document.getElementById('sqg').play()">
         <h2>杀青梗</h2>
     </button>
+
+    <!-- <h2>一些 Python 代码</h2>
+
+    <pre><code id="PC1">
+print("Hello World!")
+print("你好，世界！")
+for i in range(10):
+    print(i)
+
+import tkinter as tk
+
+root = tk.Tk()
+
+_ = tk.Label(root, text="Hello World!")
+_.pack()
+
+root.mainloop()
+
+</code></pre>
+    <script>
+        hljs.highlightElement(document.getElementById("PC1"), { language: 'python' })
+    </script> -->
 
     <h2>我的小说</h2>
 

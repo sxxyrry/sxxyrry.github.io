@@ -1,6 +1,6 @@
 const cvs = document.getElementById("CodeRain");
 
-const width = window.innerWidth * devicePixelRatio / 2,
+const width = window.innerWidth * devicePixelRatio / 5,
   height = window.innerHeight * devicePixelRatio / 2;
 
 cvs.width = width;
