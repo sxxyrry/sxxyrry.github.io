@@ -10,6 +10,8 @@ or-bar {
 }
 button {
   background-color: #00aaff;
+  border-radius: 12.3px;
+  /* border: 2.3px #fff; */
 }
 button:hover {
   background-color: #60caff;
