@@ -12,6 +12,12 @@
         or-bar :nth-child(1) button {
           background-color: #5cb8ff;
         }
+        or-bar.else button {
+            background-color: #5cb8ff;
+        }
+        or-bar.else button:hover {
+            background-color: #96ffcc;
+        }
     </style>
     <link rel="stylesheet" href="/css.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
@@ -20,452 +26,454 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script> -->
 </head>
 <body>
-    <h1>23XR工作室主页</h1>
-    
-    <or-bar>
-        <a href="/"><button>主页</button></a>
-        <a href="/XRthon_Project"><button>XRthon项目</button></a>
-        
-        <a href="/Background image 300x150.png">
-            <button>
-                <img class="logo" src="/Background image 300x150.png" alt="Background image 300x150.png">
-            </button>
-        </a>
-
-    </or-bar>
-
-    <card-pretty>
-        <content-pretty>
-            Hi!<br>
-            这里是23XR工作室！<br>
-            大家好！<br>
-            想联系我？<br>
-            发邮件到sxxyrry_23xr@163.com<br>
-            <a href="mailto:sxxyrry_23xr@163.com?subject=联系&body=你好，我想联系你。"><button>触发邮箱写信</button></a>
-        </content-pretty>
-    </card-pretty>
-
-    <!-- <s-c> -->
-        
-    <te-ct>
-        <p>BiliBili主页：</p>
-        <a href="https://space.bilibili.com/1532090388"><button>BiliBili主页</button></a>
-    </te-ct>
-    <te-ct>
-        <p>youtube主页：</p>
-        <a href="https://www.youtube.com/channel/UCSF-PayULAXgkM_22qqmP0w"><button>youtube主页</button></a>
-    </te-ct>
-    <te-ct>
-        <p>X主页：</p>
-        <a href="https://x.com/sxxyrry"><button>X主页</button></a>
-    </te-ct>
-    <te-ct>
-        <p>github主页：</p>
-        <a href="https://github.com/sxxyrry"><button>github主页</button></a>
-    </te-ct>
-    <te-ct>
-        <p>爱发电主页：</p>
-        <a href="https://ifdian.net/a/__sxxyrry__"><button>爱发电主页</button></a>
-    </te-ct>
-
-    <!-- </s-c> -->
-
-    <p></p>
-
-    <!-- <audio id="sqg" src="./不管正派反派,吃个年夜饭先!.mp3"></audio>
-
-    <button onclick="document.getElementById('sqg').play()">
-        <h2>杀青梗</h2>
-    </button> -->
-
-    <!-- <h2>一些 Python 代码</h2>
-
-    <pre><code id="PC1">
-print("Hello World!")
-print("你好，世界！")
-for i in range(10):
-    print(i)
-
-import tkinter as tk
-
-root = tk.Tk()
-
-_ = tk.Label(root, text="Hello World!")
-_.pack()
-
-root.mainloop()
-
-</code></pre>
-    <script>
-        hljs.highlightElement(document.getElementById("PC1"), { language: 'python' })
-    </script> -->
-
-    <!-- <h2>我的小说</h2>
-
-    <or-bar class="else">
-        <a href="./穿越的程序员/穿越的程序员1：宇宙代码.html">
-            <button>穿越的程序员1：宇宙代码</button>
-        </a>
-    
-        <a href="./穿越的程序员/穿越的程序员2：代码修仙.html">
-            <button>穿越的程序员2：代码修仙</button>
-        </a>
-    </or-bar> -->
-
-    <style>
-        or-bar.else button {
-            background-color: #5cb8ff;
-        }
-        or-bar.else button:hover {
-            background-color: #96ffcc;
-        }
-    </style>
- 
-    <h2>我们的音乐</h2>
-
-    <!--<h2>我喜欢的音乐</h2>
-
-    <audio id="am" src="./阿嬷.mp3"></audio>
-
-    <audio id="fhcqfchd" src="./凤凰传奇翻唱《海底》.mp3"></audio>
-
-    <audio id="lf" src="./life force.mp3"></audio>
-
-    <audio id="gxfc" src="./恭喜发财.mp3"></audio>
-
-    <audio id="ltynhnwhdjj" src="./【洛天依原创】女孩你为何踮脚尖（同人专辑《平行四界II》收录曲）.mp3"></audio>
-
-    <audio id="bgzfpcgnyfx" src="./不管正派反派,吃个年夜饭先!.mp3"></audio>
-
-    <script type="module">
-        import { CreateMusicControlBtn } from "./musicthing.js"
-        CreateMusicControlBtn(document.getElementById("am"), "am", '阿嬷')
-        CreateMusicControlBtn(document.getElementById("fhcqfchd"), "fhcqfchd", '凤凰传奇翻唱《海底》')
-        CreateMusicControlBtn(document.getElementById("lf"), "lf", 'life force')
-        CreateMusicControlBtn(document.getElementById("gxfc"), "gxfc", '恭喜发财')
-        CreateMusicControlBtn(document.getElementById("ltynhnwhdjj"), "ltynhnwhdjj", '【洛天依】女孩你为何踮脚尖')
-        CreateMusicControlBtn(document.getElementById("bgzfpcgnyfx"), "bgzfpcgnyfx", '不管正派反派,吃个年夜饭先!')
-
-        // function _some(audioDomID, author, softwareUsed){
-        //     var music_controls = document.getElementsByClassName(`music-controls ${audioDomID}`)[0]
-        //
-        //     var pDom = music_controls.getElementsByTagName("p")[2]
-        //     pDom.innerHTML = `&nbsp;Created by ${author} Used software: ${softwareUsed}`
-        //     pDom.style = "display: inline-block; margin: 0px;"
-        //
-        //     var NewpDom = document.createElement("p")
-        //
-        //     music_controls.appendChild(NewpDom)
-        // }
-
-    </script> -->
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=edd5c536-badf-ef11-88f6-6045bd3473c0" \
-    allowfullscreen></iframe>
-
-    <p></p>
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=075193fc-d3f0-ef11-90c9-00224848fea7" \
-    allowfullscreen></iframe>
-
-    <p></p>
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=c7b9a918-badf-ef11-88f6-6045bd3473c0" \
-    allowfullscreen></iframe>
-
-    <p></p>
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=80d00e17-8ce7-ef11-88f6-6045bd3473c0" \
-    allowfullscreen></iframe>
-
-    <p></p>
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=78d00e17-8ce7-ef11-88f6-6045bd3473c0" \
-    allowfullscreen></iframe>
-
-    <p></p>
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=af3c5da4-d4f0-ef11-90c9-00224848fea7" \
-    allowfullscreen></iframe>
-
-    <p></p>
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=89b899f6-9fe0-ef11-88f6-6045bd3473c0" \
-    allowfullscreen></iframe>
-
-    <p></p>
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=49966ad1-a8df-ef11-88f6-6045bd3473c0" \
-    allowfullscreen></iframe>
-
-    <p></p>
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=39a34981-95e0-ef11-88f6-6045bd3473c0" \
-    allowfullscreen></iframe>
-
-    <p></p>
-
-    <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=dfee7f13-97e0-ef11-88f6-6045bd3473c0" \
-    allowfullscreen></iframe>
-
-    <script>
-        // 所有 iframe 加载中在 iframe 上显示文字 Loading... 加载完成显示 iframe
-        for (let i = 0; i < document.getElementsByTagName("iframe").length; i++) {
-            const pDom = document.createElement("p", { id: `loading${i}` });
-            pDom.innerHTML = "Loading...";
-            const iframe = document.getElementsByTagName("iframe")[i];
-            iframe.onload = (e) => {
-                iframe.style.display = "block";
-                pDom.style.display = "none";
+    <start- id="start">
+        <style>
+            body {
+                background-color: #000;
             }
-            iframe.style.display = "none";
-            iframe.parentNode.insertBefore(pDom, iframe);
-        }
-    </script>
+        </style>
+        <h1>23XR工作室</h1>
+        <a href="/Background image 300x150.png">
+            <img class="logo" src="/Background image 300x150.png" alt="Background image 300x150.png">
+        </a>
+    </start->
 
-    <h2>代码雨</h2>
+    <start-end id="startend">
+        <h1 style="opacity: 0;"></h1>
 
-    <div>
-        <div>
-            <button id="CodeRain-btn-start">开始</button>
-            <button id="CodeRain-btn-stop">停止</button>
-        </div>
+        <or-bar>
+            <a href="/"><button>主页</button></a>
+            <a href="/XRthon_Project"><button>XRthon项目</button></a>
+            
+            <a href="/Background image 300x150.png">
+                <button>
+                    <img class="logo" src="/Background image 300x150.png" alt="Background image 300x150.png">
+                </button>
+            </a>
+            <p style="display: inline;">23XR</p>
+
+        </or-bar>
+
+        <h1>23XR工作室主页</h1>
+        
+        <card-pretty>
+            <content-pretty>
+                Hi!<br>
+                这里是23XR工作室！<br>
+                大家好！<br>
+                想联系我？<br>
+                发邮件到sxxyrry_23xr@163.com<br>
+                <a href="mailto:sxxyrry_23xr@163.com?subject=联系&body=你好，我想联系你。"><button>触发邮箱写信</button></a>
+            </content-pretty>
+        </card-pretty>
+
+        <!-- <s-c> -->
+            
+        <te-ct>
+            <p>BiliBili主页：</p>
+            <a href="https://space.bilibili.com/1532090388"><button>BiliBili主页</button></a>
+        </te-ct>
+        <te-ct>
+            <p>youtube主页：</p>
+            <a href="https://www.youtube.com/channel/UCSF-PayULAXgkM_22qqmP0w"><button>youtube主页</button></a>
+        </te-ct>
+        <te-ct>
+            <p>X主页：</p>
+            <a href="https://x.com/sxxyrry"><button>X主页</button></a>
+        </te-ct>
+        <te-ct>
+            <p>github主页：</p>
+            <a href="https://github.com/sxxyrry"><button>github主页</button></a>
+        </te-ct>
+        <te-ct>
+            <p>爱发电主页：</p>
+            <a href="https://ifdian.net/a/__sxxyrry__"><button>爱发电主页</button></a>
+        </te-ct>
+
+        <!-- </s-c> -->
 
         <p></p>
 
-        <canvas id="CodeRain"></canvas>
-    </div>
+        <!-- <audio id="sqg" src="./不管正派反派,吃个年夜饭先!.mp3"></audio>
 
-    <script type="module">
-        import CodeRain from "./CodeRain.js";
-        const { Running, draw, stop } = CodeRain;
+        <button onclick="document.getElementById('sqg').play()">
+            <h2>杀青梗</h2>
+        </button> -->
 
-        var startbtn = document.getElementById('CodeRain-btn-start');
-        var endbtn = document.getElementById('CodeRain-btn-stop');
-        var cvs = document.getElementById('CodeRain');
+        <!-- <h2>一些 Python 代码</h2>
 
-        startbtn.onclick = () => {
-            Running.value = true;
-            draw();
-        }
+        <pre><code id="PC1">
+    print("Hello World!")
+    print("你好，世界！")
+    for i in range(10):
+        print(i)
 
-        endbtn.onclick = () => {
-            Running.value = false;
-            stop()
-        }
+    import tkinter as tk
 
-        window.addEventListener("resize", () => {
-            const width = window.innerWidth * devicePixelRatio / 2,
-                height = window.innerHeight * devicePixelRatio / 2;
+    root = tk.Tk()
 
-            cvs.width = width;
-            cvs.height = height;
-        });
-    </script>
+    _ = tk.Label(root, text="Hello World!")
+    _.pack()
 
-    <!-- <h2>留言板</h2>
+    root.mainloop()
 
-    <form action="">
-        <input type="text" placeholder="写下留言">
-    </form> -->
-<!-- 
-    <h2>黑白小球交替的Loading效果1</h2>
+    </code></pre>
+        <script>
+            hljs.highlightElement(document.getElementById("PC1"), { language: 'python' })
+        </script> -->
 
-    <div class="loading1">
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-        <div class="dot1"></div>
-    </div>
+        <!-- <h2>我的小说</h2>
 
+        <or-bar class="else">
+            <a href="./穿越的程序员/穿越的程序员1：宇宙代码.html">
+                <button>穿越的程序员1：宇宙代码</button>
+            </a>
+        
+            <a href="./穿越的程序员/穿越的程序员2：代码修仙.html">
+                <button>穿越的程序员2：代码修仙</button>
+            </a>
+        </or-bar> -->
     
-    <h2>黑白小球交替的Loading效果2</h2>
+        <h2>我们的音乐</h2>
 
-    <div class="loading2">
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-        <div class="dot2"></div>
-    </div>
+        <!--<h2>我喜欢的音乐</h2>
 
-    <h2>黑白小球交替的Loading效果3</h2>
+        <audio id="am" src="./阿嬷.mp3"></audio>
 
-    <div class="loading3">
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-        <div class="dot3"></div>
-    </div>
+        <audio id="fhcqfchd" src="./凤凰传奇翻唱《海底》.mp3"></audio>
 
-    <h2>黑白小球交替的Loading效果4</h2>
+        <audio id="lf" src="./life force.mp3"></audio>
 
-    <div class="loading4">
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-        <div class="dot4"></div>
-    </div> -->
+        <audio id="gxfc" src="./恭喜发财.mp3"></audio>
 
-    <!-- <s-v>
-    </s-v> -->
+        <audio id="ltynhnwhdjj" src="./【洛天依原创】女孩你为何踮脚尖（同人专辑《平行四界II》收录曲）.mp3"></audio>
 
-    <!-- <card-pretty>
-        <content-pretty>
-            < !-- <h1>h</h1> -- >
-        </content-pretty>
-    </card-pretty> -->
+        <audio id="bgzfpcgnyfx" src="./不管正派反派,吃个年夜饭先!.mp3"></audio>
 
-    <!-- <script>
-        alert('新年快乐！Happy New Year!')
-        alert('凛冬散尽 星河长明 新的一年 万事顺遂.\n\
-🎊🌈✨万家团圆的除夕夜，会带着希望，开启新年\n\
-🏮 除夕 ✩ 年̰夜̰饭̰🐂♡⃛🏮\n\
-┏┯┓┏┯┓┏┯┓┏┯┓\n\
-┠团┨┠团┨┠圆┨┠圆┨\n\
-┗┷┛┗┷┛┗┷┛┗┷┛\n\
-i would like to wish you a joyous new year and express my hope for your happiness and good future\n\
-　祝新年快乐，并愿你幸福吉祥，前程似锦。\n\
-may the glow of new year candle fill your heart with peace and pleasure and make your new year bright。have a love filled new year！\n\
-　愿新年的烛光带给你祥和与喜悦，祝你新年充满爱。\n\
-good luck in the year a！\n\
-　祝吉星高照！\n\
-i hope you have a mt happy and prperous new year。\n\
-　谨祝新年快乐幸福，大吉大利。\n\
-wish you happiness and prperity in the coming year！\n\
-　　祝你新的一年快乐幸福。\n\
-┏[福]ᴴᴬᴾᴾᵞ ᴺᴱᵂ ᵞᴱᴬᴿ━[福]┓\n\
-祝大家新年快乐，万事如意\n\
-┗━━━━━━━━[福][福]┛\n\
-ʕ•̫͡•ʔ❤ʕ•̫͡•ʔ除夕夜快乐，好心情正常营业，烦心事永远打烊')
-    </script> -->
+        <script type="module">
+            import { CreateMusicControlBtn } from "./musicthing.js"
+            CreateMusicControlBtn(document.getElementById("am"), "am", '阿嬷')
+            CreateMusicControlBtn(document.getElementById("fhcqfchd"), "fhcqfchd", '凤凰传奇翻唱《海底》')
+            CreateMusicControlBtn(document.getElementById("lf"), "lf", 'life force')
+            CreateMusicControlBtn(document.getElementById("gxfc"), "gxfc", '恭喜发财')
+            CreateMusicControlBtn(document.getElementById("ltynhnwhdjj"), "ltynhnwhdjj", '【洛天依】女孩你为何踮脚尖')
+            CreateMusicControlBtn(document.getElementById("bgzfpcgnyfx"), "bgzfpcgnyfx", '不管正派反派,吃个年夜饭先!')
 
+            // function _some(audioDomID, author, softwareUsed){
+            //     var music_controls = document.getElementsByClassName(`music-controls ${audioDomID}`)[0]
+            //
+            //     var pDom = music_controls.getElementsByTagName("p")[2]
+            //     pDom.innerHTML = `&nbsp;Created by ${author} Used software: ${softwareUsed}`
+            //     pDom.style = "display: inline-block; margin: 0px;"
+            //
+            //     var NewpDom = document.createElement("p")
+            //
+            //     music_controls.appendChild(NewpDom)
+            // }
+
+        </script> -->
+
+        <a href="https://www.bandlab.com/sxxyrry">
+            <button>bandlap 主页</button>
+        </a>
+
+        <!-- <p></p> -->
+
+        <!-- <a href="https://www.bandlab.com/track/0897f9c2-41fb-ef11-90c9-00224848fea7?revId=0797f9c2-41fb-ef11-90c9-00224848fea7">
+            <button>为新游戏所做的音乐 循环囚笼-LoopPrisonCage</button>
+        </a> -->
+
+        <!-- <script>
+            // 所有 iframe 加载中在 iframe 上显示文字 Loading... 加载完成显示 iframe
+            for (let i = 0; i < document.getElementsByTagName("iframe").length; i++) {
+                const pDom = document.createElement("p", { id: `loading${i}` });
+                pDom.innerHTML = "Loading...";
+                const iframe = document.getElementsByTagName("iframe")[i];
+                iframe.onload = (e) => {
+                    iframe.style.display = "block";
+                    pDom.style.display = "none";
+                }
+                iframe.style.display = "none";
+                iframe.parentNode.insertBefore(pDom, iframe);
+            }
+        </script> -->
+
+        <!-- <script>
+            let _ = {
+                "https://www.bandlab.com/embed/?id=852e6943-a9df-ef11-88f6-6045bd3473c0" : "Sad",
+                "https://www.bandlab.com/embed/?id=c7b9a918-badf-ef11-88f6-6045bd3473c0" : "Exigent",
+            }
+        </script> -->
+
+        <h2>代码雨</h2>
+
+        <div>
+            <div>
+                <button id="CodeRain-btn-start">开始</button>
+                <button id="CodeRain-btn-stop">停止</button>
+            </div>
+
+            <p></p>
+
+            <canvas id="CodeRain"></canvas>
+        </div>
+
+        <script type="module">
+            import CodeRain from "./CodeRain.js";
+            const { Running, draw, stop } = CodeRain;
+
+            var startbtn = document.getElementById('CodeRain-btn-start');
+            var endbtn = document.getElementById('CodeRain-btn-stop');
+            var cvs = document.getElementById('CodeRain');
+
+            startbtn.onclick = () => {
+                Running.value = true;
+                draw();
+            }
+
+            endbtn.onclick = () => {
+                Running.value = false;
+                stop()
+            }
+
+            window.addEventListener("resize", () => {
+                const width = window.innerWidth * devicePixelRatio / 2,
+                    height = window.innerHeight * devicePixelRatio / 2;
+
+                cvs.width = width;
+                cvs.height = height;
+            });
+        </script>
+
+        <!-- <h2>留言板</h2>
+
+        <form action="">
+            <input type="text" placeholder="写下留言">
+        </form> -->
+    <!-- 
+        <h2>黑白小球交替的Loading效果1</h2>
+
+        <div class="loading1">
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+            <div class="dot1"></div>
+        </div>
+
+        
+        <h2>黑白小球交替的Loading效果2</h2>
+
+        <div class="loading2">
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+            <div class="dot2"></div>
+        </div>
+
+        <h2>黑白小球交替的Loading效果3</h2>
+
+        <div class="loading3">
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+            <div class="dot3"></div>
+        </div>
+
+        <h2>黑白小球交替的Loading效果4</h2>
+
+        <div class="loading4">
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+            <div class="dot4"></div>
+        </div> -->
+
+        <!-- <s-v>
+        </s-v> -->
+
+        <!-- <card-pretty>
+            <content-pretty>
+                < !-- <h1>h</h1> -- >
+            </content-pretty>
+        </card-pretty> -->
+
+        <!-- <script>
+            alert('新年快乐！Happy New Year!')
+            alert('凛冬散尽 星河长明 新的一年 万事顺遂.\n\
+    🎊🌈✨万家团圆的除夕夜，会带着希望，开启新年\n\
+    🏮 除夕 ✩ 年̰夜̰饭̰🐂♡⃛🏮\n\
+    ┏┯┓┏┯┓┏┯┓┏┯┓\n\
+    ┠团┨┠团┨┠圆┨┠圆┨\n\
+    ┗┷┛┗┷┛┗┷┛┗┷┛\n\
+    i would like to wish you a joyous new year and express my hope for your happiness and good future\n\
+    　祝新年快乐，并愿你幸福吉祥，前程似锦。\n\
+    may the glow of new year candle fill your heart with peace and pleasure and make your new year bright。have a love filled new year！\n\
+    　愿新年的烛光带给你祥和与喜悦，祝你新年充满爱。\n\
+    good luck in the year a！\n\
+    　祝吉星高照！\n\
+    i hope you have a mt happy and prperous new year。\n\
+    　谨祝新年快乐幸福，大吉大利。\n\
+    wish you happiness and prperity in the coming year！\n\
+    　　祝你新的一年快乐幸福。\n\
+    ┏[福]ᴴᴬᴾᴾᵞ ᴺᴱᵂ ᵞᴱᴬᴿ━[福]┓\n\
+    祝大家新年快乐，万事如意\n\
+    ┗━━━━━━━━[福][福]┛\n\
+    ʕ•̫͡•ʔ❤ʕ•̫͡•ʔ除夕夜快乐，好心情正常营业，烦心事永远打烊')
+        </script> -->
+    </start-end>
+
+    <!-- <il-> -->
+    <p>Copyright (C) 23XR工作室</p>
+    <a href="/LICENSE.html"><button>LICENSE 开源协议</button></a>
+    <!-- </il-> -->
+
+
+    <script>
+        var startDom = document.getElementById('start');
+        var startendDom = document.getElementById('startend');
+        var body = document.getElementsByTagName('body')[0];
+
+        // startendDom.style.opacity = 0;
+        startendDom.style.display = 'none';
+        startDom.style.display = 'block';
+        // startDom.style.opacity = 1;
+        
+
+        setTimeout(function () {
+            body.style.backgroundColor = '#007a66';
+            // startDom.style.opacity = 0;
+            startendDom.style.display = 'block';
+            startDom.style.display = 'none';
+            // startendDom.style.opacity = 1;
+        }, 1000);
+    </script>
 </body>
 </html>

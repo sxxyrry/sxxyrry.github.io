@@ -2,11 +2,17 @@ body {
   background-color: #007a66;
 }
 or-bar {
-  display: inline-flexbox;
+  display: block;
   /* margin-top: -20px; */
   padding: 5px;
   /* height: 10px; */
   background-color: #ffffff;
+}
+il- {
+  display: block;
+}
+il- *{
+  display: inline;
 }
 button {
   background-color: #00aaff;
