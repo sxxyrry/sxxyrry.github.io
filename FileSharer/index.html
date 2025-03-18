@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件分享器 File Sharer</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/css.css">
+    <!-- 通过CDN引入 axios 与 buffer -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <style>
+    or-bar :nth-child(3) button {
+        background-color: #5cb8ff;
+    }
+    </style>
+</head>
+<body>
+    <or-bar>
+        <a href="/"><button>主页</button></a>
+        <a href="/XRthon_Project"><button>XRthon项目</button></a>
+        <a href="/FileSharer/"><button>文件分享器</button></a>
+        
+        <a href="/Sign_23XR_Bigger.png">
+            <button>
+                <img class="logo" src="/Sign_23XR_Bigger.png" alt="Sign_23XR_Bigger.png">
+            </button>
+        </a>
+        <p style="display: inline;">23XR</p>
+
+    </or-bar>
+
+    <div>
+        <div>
+            <h1>文件分享器上传 File Sharer Upload</h1>
+            <iframe src="./Upload/" frameborder="0" height="auto"></iframe>
+        </div>
+    
+        <div>
+            <h1>文件分享器获取 File Sharer Get</h1>
+            <iframe src="./Get/" frameborder="0" height="auto"></iframe>
+        </div>
+    </div>
+
+    <a href="./../"><button>返回</button></a>
+</body>
+</html>
