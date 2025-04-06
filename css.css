@@ -1,5 +1,29 @@
 body {
-  background-color: #15008c;
+  background-color: rgb(0, 12, 72);
+}
+img.logo2 {
+  width: 57.5px;
+  height: 57.5px;
+  color: #0000;
+}
+input#file-upload-button {
+  background: rgb(0, 12, 72);
+}
+input {
+  background-color: rgb(0, 12, 72);
+  border-radius: 12.3px;
+  border: 0;
+  color: #00237c;
+}
+.up {
+  font-size: 0.7em;
+  height: 50%;
+  color: #003994;
+  background-color: #000;
+  /* 实现角标的效果 */
+  position: relative;
+  /* top: -0.5em; */
+  top: calc(0.5em - 0.5rem);
 }
 .inline {
   display: block;
@@ -9,7 +33,7 @@ body {
 }
 .box {
   display: inline-table;
-  background-color: rgb(78, 78, 78);
+  background-color: rgb(25, 25, 25);
   padding: 23px;
   margin: 23px;
   border-radius: 23px;
@@ -33,7 +57,7 @@ or-bar {
   /* margin-top: -20px; */
   padding: 5px;
   /* height: 10px; */
-  background-color: #ffffff;
+  background-color: rgb(0, 7, 40);
 }
 il- {
   display: block;
@@ -42,27 +66,30 @@ il- *{
   display: inline;
 }
 button {
-  background-color: #00aaff;
+  background-color: rgb(0, 12, 72);
   border-radius: 12.3px;
   /* border: 2.3px #fff; */
 }
 button:hover {
-  background-color: #60caff;
+  background-color: rgb(24, 31, 67);
 }
 button:active {
   background-color: #005783;
 }
 or-bar button {
-  color: #00aaff;
+  color: #00486b;
   background-color: rgba(0, 0, 0, 0);
   border: 0;
   height: 0;
 }
 or-bar button:hover {
-  background-color: #96ffcc;
+  background-color: #284235;
+}
+a{
+  text-decoration: unset;
 }
 * {
-  color: #55f1ff;
+  color: rgb(0, 42.5, 255);
 }
 .fksj {
   margin-inline-start: 2em;
@@ -81,7 +108,7 @@ card-pretty {
   color: #333;
   line-height: 1.8;
   border-radius: 23px;
-  background: repeating-linear-gradient(-45deg, #00eaff 0px 10px, #fff 10px 20px, #eeff00 20px 30px, #fff 30px 40px) -23px -23px/200% 200%;
+  background: repeating-linear-gradient(-45deg, #2600ff 0px 10px, #d0ba3f 10px 20px, #676e00 20px 30px, #d0ba3f 30px 40px) -23px -23px/200% 200%;
   padding: 10px;
   transition: 0.23s;
 }
@@ -93,11 +120,11 @@ card-pretty content-pretty {
   background: #fff;
   border-radius: 23px;
   text-align: center;
-  background: linear-gradient(-45deg, #004e55, #414600);
+  background: linear-gradient(-45deg, #001455, #414600);
 }
 img.logo {
-  width: 30px;
-  height: 15px;
+  width: 60px;
+  height: 30px;
 }
 s-c {
   display: inline-flex;
