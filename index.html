@@ -54,9 +54,9 @@
                 </button>
             </a>
 
-            <a href="/_23XRStudio_animation.gif">
+            <a href="/_23XRStudio.gif">
                 <button>
-                    <img class="logo2" src="/_23XRStudio_animation.gif" alt="/_23XRStudio_animation.gif">
+                    <img class="logo2" src="/_23XRStudio.gif" alt="/_23XRStudio.gif">
                 </button>
             </a>
 
@@ -73,7 +73,7 @@
                     <p>23XR 工作室主页！</p>
                     <img class="logo" src="/Sign_23XR_Bigger.png" alt="/Sign_23XR_Bigger.png">
                     <p></p>
-                    <img class="logo2" src="/_23XRStudio_animation.gif" alt="/_23XRStudio_animation.gif">
+                    <img class="logo2" src="/_23XRStudio.gif" alt="/_23XRStudio.gif">
                 </div>
             </div>
             
@@ -93,6 +93,26 @@
                 <a href="mailto:sxxyrry_23XR@163.com?subject=联系&body=你好，我想联系你。"><button>触发邮箱写信</button></a>
             </content-pretty>
         </card-pretty>
+
+        
+        <h1>永久赞助名单</h1>
+
+        <div class="box">
+            <h2 class="title">永久赞助名单</h2>
+            <div class="content" id="psl">
+            </div>
+        </div>
+
+        <script type="module">
+            import PSL from "./PermanentSponsorshipList.js"
+            for (let i = 0; i < PSL.length; i++) {
+                const item = PSL[i];
+                document.getElementById("psl").innerHTML += `
+                    <p>${item}</p>
+                `
+            }
+        </script>
+
 
         <!-- <s-c> -->
             
