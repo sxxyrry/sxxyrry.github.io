@@ -61,7 +61,13 @@ function GetRandomChar(){
   return chars.charAt(Math.floor(Math.random() * chars.length));
 };
 
+// cvs.width = width;
+// cvs.height = height;
+
 draw()
+
+// cvs.width = width;
+// cvs.height = height;
 
 // setInterval(draw, 40);
 

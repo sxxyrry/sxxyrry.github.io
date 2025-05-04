@@ -123,8 +123,8 @@ card-pretty content-pretty {
   background: linear-gradient(-45deg, #001455, #414600);
 }
 img.logo {
-  width: 60px;
-  height: 30px;
+  width: 120px;
+  height: 60px;
 }
 s-c {
   display: inline-flex;
