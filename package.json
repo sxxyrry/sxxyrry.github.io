@@ -7,6 +7,6 @@
     "nodemailer": "^6.10.0"
   },
   "scripts": {
-    "build": "node src/index.js --env=production"
+    "build": "npm install --save-dev parcel;parcel build src/index.html"
   }
 }
