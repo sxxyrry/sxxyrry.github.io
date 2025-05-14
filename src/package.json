@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "axios": "^1.8.3",
+    "buffer": "^6.0.3",
+    "docx": "^9.2.0",
+    "marked": "^15.0.7",
+    "nodemailer": "^6.10.0"
+  },
+  "scripts": {
+    "build": "npm install --save-dev parcel;parcel build src/index.html"
+  }
+}
