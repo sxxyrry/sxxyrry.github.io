@@ -74,8 +74,11 @@
             if (i === 0) {
                 document.getElementById("Files").innerText = ''
             }
+
+            let itemBase64 = btoa(encodeURIComponent(item));
+
             document.getElementById("Files").innerHTML += `
-                <p style="display: inline;">${item} -> </p><a style="display: inline;" href="./Files/${item}" download="${item}">下载链接</a><br>
+                <p style="display: inline;">${item} -> </p><a style="display: inline;" href="./Downloads.html?RmlsZU5hbWU=${itemBase64}">下载链接</a><br>
             `
         }
     </script>
