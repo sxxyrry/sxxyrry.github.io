@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>下载文件</title>
-    <link rel="stylesheet" href="/css.css">
+    <title>Sigma Cloud Storage 西格玛网盘 - 下载文件</title>
+    <link rel="stylesheet" href="./css.css">
 </head>
 <body>
-    <h1 id="text1">文件下载 - ""</h1>
+    <h1>Sigma Cloud Storage 西格玛网盘</h1>
+    
+    <h2 id="text1">文件下载 - ""</h1>
 
-    <p id="text2">正在下载 - ""</p>
+    <h3 id="text2">正在下载 - ""</p>
 
     <button id="btn1">下载失败点击</button>
 
@@ -26,8 +28,8 @@
             try{
                 var FileName = decodeURIComponent(atob(urlParams.get('RmlsZU5hbWU'))); // 解码文件名
             } catch (error) {
-                if (error instanceof InvalidCharacterError) {
-                    window.top.document.title = `下载文件 - 不存在`;
+                if (error instanceof DOMException && error.name === 'InvalidCharacterError') {
+                    window.top.document.title = `Sigma Cloud Storage 西格玛网盘 - 下载文件 - 不存在`;
                     document.getElementById("text1").innerHTML = `文件不存在，无法下载。`;
                     document.getElementById("text2").innerHTML = `文件不存在，无法下载。`;
                     btn.remove(); // 销毁这个按钮
@@ -38,12 +40,12 @@
             }
 
             if (FileName == null || Files.includes(FileName) === false){
-                window.top.document.title = `下载文件 - 不存在`;
+                window.top.document.title = `Sigma Cloud Storage 西格玛网盘 - 下载文件 - 不存在`;
                 document.getElementById("text1").innerHTML = `文件不存在，无法下载。`;
                 document.getElementById("text2").innerHTML = `文件不存在，无法下载。`;
                 btn.remove(); // 销毁这个按钮
             } else {
-                window.top.document.title = `下载文件 - "${FileName}"`;
+                window.top.document.title = `Sigma Cloud Storage 西格玛网盘 - 下载文件 - "${FileName}"`;
                 document.getElementById("text1").innerHTML = `文件下载 - "${FileName}"`;
                 document.getElementById("text2").innerHTML = `正在下载 - "${FileName}"`;
                 btn.addEventListener("click", () => {
@@ -61,6 +63,8 @@
 
         main();
     </script>
-
+    <br>
+    <br>
+    <a href="/SigmaCloudStorage/"><button>返回</button></a>
 </body>
 </html>
