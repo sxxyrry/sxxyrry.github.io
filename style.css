@@ -1,0 +1,145 @@
+body {
+  background-color: rgb(0, 12, 72);
+}
+img.logo2 {
+  width: 170.8px;
+  height: 96px;
+  color: #0000;
+}
+input#file-upload-button {
+  background: rgb(0, 12, 72);
+}
+input {
+  background-color: rgb(0, 12, 72);
+  border-radius: 12.3px;
+  border: 0;
+  color: #00237c;
+}
+.up {
+  font-size: 0.9em;
+  height: 50%;
+  color: #003994;
+  background-color: #000;
+  /* 实现角标的效果 */
+  position: relative;
+  /* top: -0.5em; */
+  top: calc(0.5em - 0.5rem);
+}
+.inline {
+  display: block;
+}
+.inline * {
+  display: inline-table;
+}
+.box {
+  display: inline-table;
+  background-color: rgb(25, 25, 25);
+  padding: 23px;
+  margin: 23px;
+  border-radius: 23px;
+}
+.box .title {
+  display: block;
+  margin: 5px;
+}
+.box .content {
+  display: block;
+  margin: 5px;
+}
+.box .title * {
+  display: block;
+}
+.box .content * {
+  display: block;
+}
+or-bar {
+  display: block;
+  /* margin-top: -20px; */
+  padding: 5px;
+  /* height: 10px; */
+  background-color: rgb(0, 7, 40);
+}
+il- {
+  display: block;
+}
+il- *{
+  display: inline;
+}
+button {
+  background-color: rgb(0, 12, 72);
+  border-radius: 12.3px;
+  /* border: 2.3px #fff; */
+}
+button:hover {
+  background-color: rgb(24, 31, 67);
+}
+button:active {
+  background-color: #005783;
+}
+or-bar button {
+  color: #00486b;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  height: 0;
+}
+or-bar button:hover {
+  background-color: #284235;
+}
+a{
+  text-decoration: unset;
+}
+* {
+  color: rgb(0, 42.5, 255);
+}
+.fksj {
+  margin-inline-start: 2em;
+}
+te-ct {
+  display: block;
+}
+te-ct :nth-child(2) {
+  margin-inline-start: 2em;
+}
+card-pretty {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 25px;
+  color: #333;
+  line-height: 1.8;
+  border-radius: 23px;
+  background: repeating-linear-gradient(-45deg, #2600ff 0px 10px, #d0ba3f 10px 20px, #676e00 20px 30px, #d0ba3f 30px 40px) -23px -23px/200% 200%;
+  padding: 10px;
+  transition: 0.23s;
+}
+card-pretty:hover {
+  background-position: 0 0;
+}
+card-pretty content-pretty {
+  display: block;
+  background: #fff;
+  border-radius: 23px;
+  text-align: center;
+  background: linear-gradient(-45deg, #001455, #414600);
+}
+img.logo {
+  width: 120px;
+  height: 60px;
+}
+s-c {
+  display: inline-flex;
+}
+s-c * {
+  display: inline-flexbox;
+}
+s-v {
+  display: block;
+}
+card-card {
+  display: block;
+  padding: 10px;
+  border: 1px solid #000000;
+  margin-inline-start: 10px;
+  margin-block-start: 10px;
+  width: 50%;
+}
