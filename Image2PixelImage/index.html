@@ -10,10 +10,12 @@
   <script type="module" src="/src/main.js"></script>
 
   <script>
-    // 让这个网页切换到 主页 ，并将主页的 Vue-Roter 的 路由切换到这个页面的原地址
+    // 让这个网页切换到 主页 ，并将主页的 Vue-Router 的 路由切换到这个页面的原地址
     window.onload = function () {
+      window.history.pushState(null, null, '/Image2PixelImage');
       window.location.href = '/';
       window.history.pushState(null, null, '/Image2PixelImage');
+
     }
 
   </script>
