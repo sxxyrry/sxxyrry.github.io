@@ -1,1 +1,0 @@
-var e,s;function a(){if(s)return e;s=1;function l(n){return{name:"Shell Session",aliases:["console","shellsession"],contains:[{className:"meta.prompt",begin:/^\s{0,3}[/~\w\d[\]()@-]*[>%$#][ ]?/,starts:{end:/[^\\](?=\s*$)/,subLanguage:"bash"}}]}}return e=l,e}export{a as r};

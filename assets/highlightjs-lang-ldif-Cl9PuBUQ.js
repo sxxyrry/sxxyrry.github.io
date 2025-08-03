@@ -1,1 +1,0 @@
-var a,e;function i(){if(e)return a;e=1;function r(t){return{name:"LDIF",contains:[{className:"attribute",match:"^dn(?=:)",relevance:10},{className:"attribute",match:"^\\w+(?=:)"},{className:"literal",match:"^-"},t.HASH_COMMENT_MODE]}}return a=r,a}export{i as r};

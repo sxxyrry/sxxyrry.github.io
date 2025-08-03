@@ -1,1 +1,0 @@
-var e,r;function a(){if(r)return e;r=1;function n(u){return{name:"ERB",subLanguage:"xml",contains:[u.COMMENT("<%#","%>"),{begin:"<%[%=-]?",end:"[%-]?%>",subLanguage:"ruby",excludeBegin:!0,excludeEnd:!0}]}}return e=n,e}export{a as r};

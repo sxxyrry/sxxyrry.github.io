@@ -1,1 +1,0 @@
-var n,e;function a(){if(e)return n;e=1;function t(r){return{aliases:["pycon"],contains:[{className:"meta.prompt",starts:{end:/ |$/,starts:{end:"$",subLanguage:"python"}},variants:[{begin:/^>>>(?=[ ]|$)/},{begin:/^\.\.\.(?=[ ]|$)/}]}]}}return n=t,n}export{a as r};

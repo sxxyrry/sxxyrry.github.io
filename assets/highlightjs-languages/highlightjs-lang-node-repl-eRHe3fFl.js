@@ -1,0 +1,1 @@
+var e,n;function t(){if(n)return e;n=1;function r(a){return{name:"Node REPL",contains:[{className:"meta.prompt",starts:{end:/ |$/,starts:{end:"$",subLanguage:"javascript"}},variants:[{begin:/^>(?=[ ]|$)/},{begin:/^\.\.\.(?=[ ]|$)/}]}]}}return e=r,e}export{t as r};
