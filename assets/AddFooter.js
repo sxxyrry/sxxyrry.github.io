@@ -41,16 +41,21 @@ class StudioFooter {
                 <div class="footer-section">
                     <h3>友情链接</h3>
                     <ul class="friend-links">
-                    <li>
-                        <a href="https://xnors.github.io" target="_blank" rel="noopener noreferrer">
-                        XnorsStudio 异或工作室
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/denjehdhuendx/ITLToolkitnext" target="_blank" rel="noopener noreferrer">
-                        ITLToolkit IT 课工具箱
-                        </a>
-                    </li>
+                        <li>
+                            <a href="https://xnors.github.io" target="_blank" rel="noopener noreferrer">
+                                XnorsStudio 异或工作室
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/denjehdhuendx/ITLToolkitnext" target="_blank" rel="noopener noreferrer">
+                                ITLToolkit IT 课工具箱
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://pelmenilslandcraft.netlify.app/" target="_blank" rel="noopener noreferrer">
+                                Pelmenils（Land）Craft
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 
