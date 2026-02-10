@@ -57,7 +57,7 @@ class StudioFooter {
                 <div class="footer-section">
                     <h3>关注我们</h3>
                     <div class="social-links">
-                        <a href="https://github.com/sxxyrry/JustHTML" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <a href="https://github.com/sxxyrry" target="_blank" rel="noopener noreferrer" class="social-link">
                             <span class="social-icon">
                             🐱
                             </span>
