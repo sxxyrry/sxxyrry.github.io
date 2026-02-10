@@ -1,0 +1,40 @@
+<svg width="128" height="128" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css">
+      @font-face {
+        font-family: 'SarasaMonoSC-ExtraLightItalic';
+        src: url('./assets/fonts/sliced/SarasaMonoSC/SarasaMonoSC-ExtraLightItalic.1.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+  </defs>
+  
+  <!-- 暗色背景 -->
+  <rect width="512" height="512" fill="#121212" rx="20"/>
+  
+  <!-- 换行文字内容 - 第一行 -->0" 
+  <text x="256" y="200"
+        font-family="SarasaMonoSC-ExtraLightItalic, Arial, sans-serif" 
+        font-size="80" 
+        font-weight="normal"
+        font-style="italic"
+        fill="#4a9eff" 
+        text-anchor="middle" 
+        dominant-baseline="middle">
+    JustHTML
+  </text>
+  
+  <!-- 换行文字内容 - 第二行 -->
+  <text x="256" y="312" 
+        font-family="SarasaMonoSC-ExtraLightItalic, Arial, sans-serif" 
+        font-size="80" 
+        font-weight="normal"
+        font-style="italic"
+        fill="#4a9eff" 
+        text-anchor="middle" 
+        dominant-baseline="middle">
+    只需网页
+  </text>
+</svg>

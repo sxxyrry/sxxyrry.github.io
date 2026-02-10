@@ -1,1 +1,0 @@
-var e,r;function a(){if(r)return e;r=1;function u(n){return{name:"Clojure REPL",contains:[{className:"meta.prompt",begin:/^([\w.-]+|\s*#_)?=>/,starts:{end:/$/,subLanguage:"clojure"}}]}}return e=u,e}export{a as r};

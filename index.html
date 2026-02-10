@@ -1,18 +1,1272 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-cn">
   <head>
-    <meta charset="UTF-8">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>23XR工作室 23XR Studio</title>
-    <script type="module" crossorigin src="/assets/index-CEUacyVH.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/ElseDependent-Q8CVMjsT.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-DmLk25Dc.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23XR Studio 23XR 工作室</title>
+    <script src="/package/GSAP/code/gsap.min.js"></script>
+    <script src="/package/GSAP/code/ScrollTrigger.min.js"></script>
+    <script src="/package/GSAP/code/ScrollToPlugin.min.js"></script>
+    <script src="/package/Vue/code/vue.global.prod.js"></script>
+    <script src="/package/Marked/code/marked.umd.js"></script>
+
+    <script>
+      /**
+       * 动态加载（强制去除缓存） CSS 的函数
+       * @param {string} src - 要加载的 CSS 的 src 链接
+       * @returns {Promise} 返回一个 Promise 对象，用于处理异步加载
+       */
+      function loadStyle(src) {
+        return new Promise((resolve, reject) => {
+          const link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = src + "?v=" + new Date().getTime(); // 使用时间戳避免缓存
+          link.async = true;
+          link.onload = resolve;
+          link.onerror = reject;
+          document.head.appendChild(link);
+        });
+      }
+
+      /**
+       * 动态加载（强制去除缓存） JS 的函数
+       * @param {string} src - 要加载的 JS 的 src 链接
+       * @returns {Promise} 返回一个 Promise 对象，用于处理异步加载
+       */
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = src + "?v=" + new Date().getTime(); // 使用时间戳避免缓存
+          script.async = true;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }
+    </script>
+
+    <script>
+      loadStyle("../assets/style.css");
+      let scriptArray = [
+        "../assets/AddHeader.js",
+        "../assets/AddFooter.js",
+        "../assets/AddIco.js",
+        "../assets/AutoRun.js",
+      ];
+
+      scriptArray.forEach((script) => {
+        loadScript(script);
+      });
+    </script>
+
+    <!-- 数据文件 -->
+    <script src="./assets/Data.js"></script>
+    <!-- 样式 -->
+    <link rel="stylesheet" href="/assets/style.css" />
+    <style>
+      body {
+        font-family: "SarasaMonoSC-ExtraLightItalic", sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      .app-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* 动画类 */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+
+      .scale-in {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      /* 自定义滚动条 */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-secondary);
+      }
+
+      /* 主内容样式 */
+      main {
+        flex: 1;
+        padding: 0 20px;
+      }
+
+      /* 英雄区域 */
+      .hero {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: 40px 20px;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        z-index: 2;
+        position: relative;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-color) 0%,
+          var(--accent-secondary) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        color: var(--text-secondary);
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+        font-family: "SarasaMonoSC-ExtraLightItalic";
+      }
+
+      .btn-primary {
+        background-color: var(--accent-color);
+        color: white;
+        box-shadow: 0 5px 15px rgba(74, 158, 255, 0.4);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(74, 158, 255, 0.6);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--text-primary);
+        border: 2px solid var(--accent-color);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--accent-color);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      /* 浮动粒子背景 */
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        opacity: 0.3;
+      }
+
+      /* 关于我们区域 */
+      .about {
+        padding: 100px 0;
+        background-color: var(--bg-secondary);
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: var(--accent-color);
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background-color: var(--accent-secondary);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-image {
+        flex: 1;
+        height: 400px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+        position: relative;
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(74, 158, 255, 0.1),
+          rgba(255, 107, 74, 0.1)
+        );
+        z-index: 1;
+      }
+
+      .code-display {
+        background-color: var(--bg-primary);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        font-family: "SarasaMonoSC-ExtraLightItalic", monospace;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        white-space: pre;
+      }
+
+      .code-line {
+        opacity: 0;
+        white-space: pre;
+      }
+
+      /* 项目展示区域 */
+      .projects {
+        padding: 100px 0;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .project-card {
+        background-color: var(--bg-secondary);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+        transition: var(--transition);
+        opacity: 0;
+        text-decoration: none;
+        cursor: pointer; /* 添加鼠标指针样式 */
+        position: relative; /* 为伪元素定位 */
+        display: block; /* 使其行为更像链接 */
+      }
+
+      /* 添加点击效果反馈 */
+      .project-card:active {
+        transform: translateY(-5px) scale(0.98) !important;
+      }
+
+      /* 添加访问状态指示 */
+      .project-card::after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234a9eff'%3E%3Cpath d='M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/%3E%3Cpath d='M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover::after {
+        opacity: 1;
+      }
+
+      /* 为链接状态添加视觉反馈 */
+      .project-card:focus-visible {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 15px 30px rgba(94, 94, 94, 0.4);
+      }
+
+      .project-image {
+        height: 200px;
+        width: 100%;
+        background-color: var(--bg-tertiary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: var(--accent-color);
+      }
+
+      .project-image img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+      }
+
+      .project-content {
+        padding: 20px;
+      }
+
+      .project-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+
+      .project-description {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        background-color: var(--bg-tertiary);
+        color: var(--text-secondary);
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+      }
+
+      /* 团队成员区域 */
+      .team {
+        padding: 100px 0;
+        background-color: var(--bg-secondary);
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .team-card {
+        background-color: var(--bg-primary);
+        border-radius: var(--border-radius);
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: var(--card-shadow);
+        transition: var(--transition);
+        opacity: 0;
+      }
+
+      .team-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .member-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        background-color: var(--bg-tertiary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .member-avatar img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+      }
+
+      .member-avatar::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(74, 158, 255, 0.2),
+          transparent
+        );
+        top: 0;
+        left: -100%;
+        transition: left 0.5s ease;
+      }
+
+      .team-card:hover .member-avatar::after {
+        left: 100%;
+      }
+
+      .member-name {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+        color: var(--accent-color);
+      }
+
+      .member-role {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+
+      .member-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: center;
+      }
+
+      .skill-tag {
+        background-color: var(--bg-tertiary);
+        color: var(--text-secondary);
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+      }
+
+      /* 联系区域 */
+      .contact {
+        padding: 100px 0;
+      }
+
+      .contact-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      .contact-form {
+        background-color: var(--bg-secondary);
+        padding: 40px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+        margin-top: 40px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--bg-tertiary);
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: "SarasaMonoSC-ExtraLightItalic";
+        transition: var(--transition);
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.2);
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 992px) {
+        .about-content {
+          flex-direction: column;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .project-grid,
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+
+      /* 导航菜单样式 */
+      .main-nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgba(18, 18, 18, 0.95);
+        backdrop-filter: blur(10px);
+        --webkit-backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 15px 0;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(45, 45, 45, 0.3);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--accent-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-link {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: var(--transition);
+        position: relative;
+        padding: 5px 0;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--accent-color);
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          background-color: var(--bg-primary);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          gap: 20px;
+          transform: translateY(-100%);
+          opacity: 0;
+          transition: var(--transition);
+          z-index: 999;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .btn- {
+        border-radius: 10px;
+      }
+
+      /* 页脚样式调整 */
+      footer {
+        margin-top: auto;
+      }
+    </style>
   </head>
   <body>
-    <div id="StartAnim"></div>
-    <div id="app"></div>
+    <div id="app" class="app-container">
+      <!-- Header将通过Header.js自动添加到这里 -->
+
+      <main>
+        <!-- 英雄区域 -->
+        <section id="home" class="hero">
+          <div class="particles" ref="particlesContainer"></div>
+          <div class="hero-content">
+            <h1 class="fade-in">23XR Studio 23XR 工作室</h1>
+            <p class="hero-subtitle fade-in">
+              23XR 工作室 · {{ currentSlogan }}<span class="cursor">|</span>
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary fade-in">查看项目</a>
+              <a href="#contact" class="btn btn-secondary fade-in">联系我们</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- <button class="btn-" onclick="showVHDialog()"> 版本历史记录 </button> -->
+        <button class="btn-" onclick="showREDialog()"> README 文件 </button>
+
+        <!-- 关于我们 -->
+        <section id="about" class="about">
+          <h2 class="section-title slide-in-left">关于我们</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                23XR Studio 23XR 工作室 是一群初中生因爱好聚集在一起的 IT 工作室（虽然现在真正意义上的工作室成员只有我一个人）
+              </p>
+              <p>
+                我们相信技术的力量可以改变世界。
+                <br>
+                我们通过代码创造价值。
+              </p>
+            </div>
+            <div class="about-image">
+              <div class="code-display">
+                <div
+                  v-for="(line, index) in codeLines"
+                  :key="index"
+                  class="code-line"
+                  :ref="`codeLine${index}`"
+                >
+                  {{ line }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 项目展示 -->
+        <section id="projects" class="projects">
+          <h2 class="section-title slide-in-right">项目展示</h2>
+          <div class="project-grid">
+            <a
+              v-for="(project, index) in projects"
+              :key="project.id"
+              class="project-card"
+              :ref="`projectCard${index}`"
+              :href="project.link"
+              @click="handleProjectClick(project.link, $event)"
+              @keydown.enter="handleProjectClick(project.link, $event)"
+              @keydown.space="handleProjectClick(project.link, $event)"
+              tabindex="0"
+              role="link"
+              :aria-label="'查看' + project.name + '项目'"
+            >
+              <script>
+
+              </script>
+              <div class="project-image">
+                <img :src="project.icon" alt="icon">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">{{ project.name }}</h3>
+                <p class="project-description">{{ project.description }}</p>
+                <div class="project-tags">
+                  <span v-for="tag in project.tags" :key="tag" class="tag"
+                    >{{ tag }}</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- 团队成员 -->
+        <section id="team" class="team">
+          <h2 class="section-title slide-in-left">团队成员</h2>
+          <div class="team-grid">
+            <div
+              v-for="(member, index) in teamMembers"
+              :key="member.id"
+              class="team-card"
+              :ref="`teamCard${index}`"
+            >
+              <div class="member-avatar">
+                <img :src="member.avatar" alt="avatar">
+              </div>
+              <h3 class="member-name">{{ member.name }}</h3>
+              <p class="member-role">{{ member.role }}</p>
+              <div class="member-skills">
+                <span
+                  v-for="skill in member.skills"
+                  :key="skill"
+                  class="skill-tag"
+                  >{{ skill }}</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 联系我们 -->
+        <section id="contact" class="contact">
+          <h2 class="section-title slide-in-right">联系我们</h2>
+          <div class="contact-content">
+            <p>
+              如果您对我们的项目感兴趣，或者想了解更多关于我们工作室的信息，请随时与我们联系。
+              <br>
+              联系方式：发送邮件至 23XRStudio@sxxyrry.qzz.io
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer将通过Footer.js自动添加到这里 -->
+    </div>
+
+
+    <dialog id="VersionHistoryDialog">
+      <div class="dialog-content">
+        <h2>版本历史</h2>
+        <pre id="VersionHistory"></pre>
+        <div class="dialog-actions">
+          <button class="btn" id="closeDialog_VerHis">关闭</button>
+        </div>
+      </div>
+    </dialog>
+    <dialog id="READMEDialog">
+      <div class="dialog-content">
+        <h2>README</h2>
+        <pre id="README"></pre>
+        <div class="dialog-actions">
+          <button class="btn" id="closeDialog_README">关闭</button>
+        </div>
+      </div>
+    </dialog>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        var dialog = document.getElementById('VersionHistoryDialog');
+        var closeDialogBtn = document.getElementById('closeDialog_VerHis');
+        
+        // 添加打开对话框的方法到 全局 中
+        showVHDialog = function() {
+          dialog.showModal();
+        };
+
+        window.showVHDialog = showVHDialog
+        
+        // 关闭对话框事件
+        closeDialogBtn.addEventListener('click', () => {
+          dialog.close();
+        });
+        
+        // 点击对话框外部关闭对话框
+        dialog.addEventListener('click', (event) => {
+          if (event.target === dialog) {
+            dialog.close();
+          }
+        });
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        var dialog = document.getElementById('READMEDialog');
+        var closeDialogBtn = document.getElementById('closeDialog_README');
+        
+        // 添加打开对话框的方法到 全局 中
+        showREDialog = function() {
+          const dialog_info = document.getElementById('infoDialog');
+          if (dialog_info) {
+            dialog_info.close();
+          }
+          dialog.showModal();
+        };
+
+        window.showREDialog = showREDialog
+        
+        // 关闭对话框事件
+        closeDialogBtn.addEventListener('click', () => {
+          dialog.close();
+        });
+        
+        // 点击对话框外部关闭对话框
+        dialog.addEventListener('click', (event) => {
+          if (event.target === dialog) {
+            dialog.close();
+          }
+        });
+      });
+      const { createApp } = Vue;
+
+      const App = createApp({
+        data() {
+          return {
+            projects: window.projectsData || [],
+            teamMembers: window.teamMembersData || [],
+            contactForm: {
+              name: "",
+              email: "",
+              message: "",
+            },
+            codeLines: [
+              "# 23XRStudio - 一切，皆有可能！",
+              "import itertools as it",
+              "matrix=[[i+j*3 for i in range(3)]for j in range(3)]",
+              "print(\"矩阵:\",matrix)",
+              "transposed=list(zip(*matrix))",
+              "print(\"转置:\",transposed)",
+              "flatten=[x for row in matrix for x in row]",
+              "print(\"展平:\",flatten)"
+            ],
+            slogans: [
+              '尘埃未定，你我 皆是黑马！',
+              '一切，皆有可能！',
+              '探索未知，创造非凡',
+              '创新不止，进步不息',
+              '梦想改变一切！'
+            ],
+            currentSlogan: '',
+            sloganIndex: 0,
+            charIndex: 0,
+            isDeleting: false,
+            typingSpeed: 100,
+            deletingSpeed: 50,
+            pauseTime: 1500
+          };
+        },
+        mounted() {
+          // 等待Header和Footer加载完成后再初始化动画
+          const self = this; // 保存this引用
+          setTimeout(() => {
+            self.initAnimations();
+            self.createParticles();
+            self.initScrollAnimations();
+            self.startTypewriter(); // 启动打字机效果
+          }, 100);
+        },
+        methods: {
+          handleProjectClick(link, event) {
+            // 阻止事件冒泡（如果有必要）
+            event.stopPropagation();
+            
+            // 防止重复点击
+            if (this.clickedProject) {
+              return;
+            }
+            
+            // 添加点击动画效果
+            const card = event.currentTarget;
+            card.style.transition = 'all 0.2s ease';
+            card.style.transform = 'translateY(-5px) scale(0.98)';
+            
+            // 短暂延迟后打开链接
+            setTimeout(() => {
+              if (link) {
+                window.open(link);
+              }
+              
+              // 恢复原状
+              setTimeout(() => {
+                card.style.transform = '';
+              }, 200);
+            }, 150);
+            
+            // 重置点击状态
+            setTimeout(() => {
+              this.clickedProject = false;
+            }, 300);
+          },
+          startTypewriter() {
+            const type = () => {
+              const currentSlogan = this.slogans[this.sloganIndex];
+              
+              if (!this.isDeleting) {
+                // 打字阶段
+                this.currentSlogan = currentSlogan.substring(0, this.charIndex + 1);
+                this.charIndex++;
+                
+                if (this.charIndex === currentSlogan.length) {
+                  // 打完完整标语后暂停一会儿
+                  this.isDeleting = true;
+                  setTimeout(type, this.pauseTime);
+                  return;
+                }
+              } else {
+                // 删除阶段
+                this.currentSlogan = currentSlogan.substring(0, this.charIndex - 1);
+                this.charIndex--;
+                
+                if (this.charIndex === 0) {
+                  // 删除完毕后切换到下一个标语
+                  this.isDeleting = false;
+                  this.sloganIndex = (this.sloganIndex + 1) % this.slogans.length;
+                }
+              }
+              
+              // 设置不同的速度
+              const speed = this.isDeleting ? this.deletingSpeed : this.typingSpeed;
+              setTimeout(type, speed);
+            };
+            
+            // 开始打字效果
+            setTimeout(type, 500); // 延迟500ms开始
+          },
+          submitContactForm() {
+            if (
+              !this.contactForm.name ||
+              !this.contactForm.email ||
+              !this.contactForm.message
+            ) {
+              alert("请填写所有字段");
+              return;
+            }
+
+            alert(`感谢 ${this.contactForm.name} 的留言！我们会尽快回复您。`);
+
+            this.contactForm = {
+              name: "",
+              email: "",
+              message: "",
+            };
+          },
+          toggleMobileMenu() {
+            this.mobileMenuOpen = !this.mobileMenuOpen;
+          },
+          scrollToSection(sectionId) {
+            // 关闭移动端菜单
+            this.mobileMenuOpen = false;
+
+            // 使用GSAP实现平滑滚动
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: { y: `#${sectionId}`, offsetY: 70 },
+              ease: "power2.inOut",
+            });
+          },
+          submitContactForm() {
+            if (
+              !this.contactForm.name ||
+              !this.contactForm.email ||
+              !this.contactForm.message
+            ) {
+              alert("请填写所有字段");
+              return;
+            }
+
+            // 这里应该发送表单数据到服务器
+            alert(`感谢 ${this.contactForm.name} 的留言！我们会尽快回复您。`);
+
+            // 重置表单
+            this.contactForm = {
+              name: "",
+              email: "",
+              message: "",
+            };
+          },
+          initAnimations() {
+            gsap.to(".fade-in", {
+              duration: 1.5,
+              opacity: 1,
+              y: 0,
+              stagger: 0.3,
+              ease: "power3.out",
+            });
+
+            // 英雄区域动画
+            gsap.to(".fade-in", {
+              duration: 1.5,
+              opacity: 1,
+              y: 0,
+              stagger: 0.3,
+              ease: "power3.out",
+            });
+
+            // 关于我们标题动画
+            gsap.to(".slide-in-left", {
+              scrollTrigger: {
+                trigger: ".about",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+              duration: 1,
+              opacity: 1,
+              x: 0,
+              ease: "power3.out",
+            });
+
+            // 代码行逐行显示动画
+            this.codeLines.forEach((_, index) => {
+              gsap.to(this.$refs[`codeLine${index}`], {
+                scrollTrigger: {
+                  trigger: ".about",
+                  start: "top 70%",
+                  end: "bottom 30%",
+                  toggleActions: "play none none reverse",
+                },
+                duration: 0.5,
+                delay: index * 0.2,
+                opacity: 1,
+                ease: "power2.out",
+              });
+            });
+          },
+          initScrollAnimations() {
+            // 项目卡片动画
+            this.projects.forEach((_, index) => {
+              gsap.to(this.$refs[`projectCard${index}`], {
+                scrollTrigger: {
+                  trigger: ".projects",
+                  start: "top 80%",
+                  end: "bottom 20%",
+                  toggleActions: "play none none reverse",
+                },
+                duration: 0.8,
+                delay: index * 0.1,
+                opacity: 1,
+                y: 0,
+                ease: "power2.out",
+              });
+            });
+
+            // 团队成员卡片动画
+            this.teamMembers.forEach((_, index) => {
+              gsap.to(this.$refs[`teamCard${index}`], {
+                scrollTrigger: {
+                  trigger: ".team",
+                  start: "top 80%",
+                  end: "bottom 20%",
+                  toggleActions: "play none none reverse",
+                },
+                duration: 0.8,
+                delay: index * 0.1,
+                opacity: 1,
+                y: 0,
+                ease: "power2.out",
+              });
+            });
+
+            // 其他标题动画
+            gsap.to(".slide-in-right", {
+              scrollTrigger: {
+                trigger: ".slide-in-right",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+              },
+              duration: 1,
+              opacity: 1,
+              x: 0,
+              ease: "power3.out",
+            });
+          },
+          createParticles() {
+            const container = this.$refs.particlesContainer;
+            if (!container) return;
+
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+              const particle = document.createElement("div");
+              particle.classList.add("particle");
+
+              // 随机大小和位置
+              const size = Math.random() * 4 + 1;
+              const posX = Math.random() * 100;
+              const posY = Math.random() * 100;
+
+              // 随机颜色（使用主色调）
+              const colors = ["#4a9eff", "#ff6b4a", "#9eff4a", "#ff4a9e"];
+              const color = colors[Math.floor(Math.random() * colors.length)];
+
+              // 设置粒子样式
+              particle.style.width = `${size}px`;
+              particle.style.height = `${size}px`;
+              particle.style.left = `${posX}%`;
+              particle.style.top = `${posY}%`;
+              particle.style.backgroundColor = color;
+
+              container.appendChild(particle);
+
+              // 创建浮动动画
+              this.animateParticle(particle);
+            }
+          },
+          animateParticle(particle) {
+            const duration = Math.random() * 10 + 10; // 10-20秒
+            const xMovement = Math.random() * 100 - 50; // -50px 到 50px
+            const yMovement = Math.random() * 100 - 50; // -50px 到 50px
+
+            gsap.to(particle, {
+              x: xMovement,
+              y: yMovement,
+              duration: duration,
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut",
+            });
+
+            // 添加脉动效果
+            gsap.to(particle, {
+              opacity: Math.random() * 0.5 + 0.2,
+              duration: Math.random() * 2 + 1,
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut",
+            });
+          },
+        },
+      })
+
+      function init_app() {
+        App.mount("#app");
+
+        // 初始化GSAP插件
+        gsap.registerPlugin(ScrollTrigger);
+      }
+
+      
+    // 等待所有脚本加载完成后初始化应用
+    Promise.all([
+      loadScript('./assets/Tools.js'),
+      loadScript('./assets/Data.js'),
+      fetch('./README.md?v=' + Date.now())
+        .then(rep => rep.text())
+        .then(text => {
+          document.getElementById('README').innerHTML = marked.parse(text);
+        }),
+      fetch('./VersionHistory.txt?v=' + Date.now())
+        .then(rep => rep.text())
+        .then(text => {
+          document.getElementById('VersionHistory').innerHTML = text;
+        })
+    ])
+    .then(() => {
+      window.projectsData = deepcopy(projectsData);
+      window.teamMembersData = deepcopy(teamMembersData);
+      init_app();
+    })
+    </script>
   </body>
 </html>

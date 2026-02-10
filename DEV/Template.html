@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工具名称 - JustHTML 只需网页</title>
+  <script>
+/**
+ * 动态加载（强制去除缓存） CSS 的函数
+ * @param {string} src - 要加载的 CSS 的 src 链接
+ * @returns {Promise} 返回一个 Promise 对象，用于处理异步加载
+ */
+function loadStyle(src) {
+  return new Promise((resolve, reject) => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = src + '?v=' + new Date().getTime(); // 使用时间戳避免缓存
+    link.async = true;
+    link.onload = resolve;
+    link.onerror = reject;
+    document.head.appendChild(link);
+  });
+}
+</script>
+
+  <script>
+    loadStyle('../assets/style.css')
+  </script>
+
+  <script src="../package/Vue/code/vue.global.prod.js"></script>
+  <script type="module" src="../package/Sober/code/main.js"></script>
+
+  <script src="../assets/AddHeader_Tools.js"></script>
+  <script src="../assets/AddFooter.js"></script>
+  <script src="../assets/AddIco.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <a href="../index.html" class="back-link">← 返回首页</a>
+      
+      <div class="tool-section">
+        <h2>工具标题</h2>
+        
+        <!-- 工具主体内容 -->
+        <div>
+          <!-- 示例：输入区域 -->
+          <textarea v-model="inputText" placeholder="在这里输入内容..."></textarea>
+          
+          <!-- 示例：按钮 -->
+          <button @click="processData">处理</button>
+          
+          <!-- 示例：输出区域 -->
+          <div class="result" v-if="result">
+            {{ result }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const { createApp, ref } = Vue;
+
+    createApp({
+      setup() {
+        const inputText = ref('');
+        const result = ref('');
+
+        const processData = () => {
+          // 实现工具逻辑
+          result.value = inputText.value; // 示例逻辑
+        };
+
+        return {
+          inputText,
+          result,
+          processData
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!-- 静态版本 - 移除所有动画元素 -->
+<svg width="128" height="128" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#3488f7"/>
+      <stop offset="50%" stop-color="#8338EC"/>
+      <!-- <stop offset="100%" stop-color="#06D6A0"/> -->
+    </radialGradient>
+    
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00BBF9"/>
+      <stop offset="100%" stop-color="#00F5D4"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 静态背景和文字 -->
+  <rect width="512" height="512" rx="60" fill="url(#bgGradient)"/>
+  
+  <g transform="translate(256, 256)">
+    <text y="-60" font-family="Consolas" font-size="90" font-weight="800" 
+          text-anchor="middle" fill="url(#textGradient)" letter-spacing="10">
+      &lt;/&gt;
+    </text>
+    
+    <text y="30" font-family="Segoe UI" font-size="48" font-weight="700" 
+          text-anchor="middle" fill="url(#textGradient)">
+      JustHTML
+    </text>
+    
+    <text y="85" font-family="Microsoft YaHei" font-size="36" 
+          text-anchor="middle" fill="url(#textGradient)">
+      只需网页
+    </text>
+  </g>
+</svg>
