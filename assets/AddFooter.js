@@ -1,6 +1,6 @@
-// 23XRStudio 网站页脚组件
+// sxxyrry 网站通用页脚组件
 
-class StudioFooter {
+class Footer {
     constructor() {
         this.init();
     }
@@ -165,16 +165,16 @@ class StudioFooter {
 }
 
 // 自动初始化
-let studioFooter;
+let footer;
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        studioFooter = new StudioFooter();
+        footer = new Footer();
     });
 } else {
-    studioFooter = new StudioFooter();
+    footer = new Footer();
 }
 
 // 导出供其他脚本使用
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = StudioFooter;
+    module.exports = Footer;
 }
