@@ -56,6 +56,11 @@ class StudioFooter {
                                 Pelmenils（Land）Craft
                             </a>
                         </li>
+                        <li>
+                            <a href="https://johnnyblog.top/" target="_blank" rel="noopener noreferrer">
+                                馋猫网
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 

@@ -1,4 +1,10 @@
-@import './fonts/sliced/SarasaMonoSC/font.css';
+
+@import './fonts/sliced/SarasaMonoSC-ExtraLightItalic/font.css';
+@import './fonts/sliced/SarasaMonoSC-BoldItalic/font.css';
+@import './fonts/sliced/SarasaMonoSC-Bold/font.css';
+@import './fonts/sliced/SarasaMonoSC-LightItalic/font.css';
+@import './fonts/sliced/SarasaMonoSC-Light/font.css';
+
 
 :root {
     --bg-primary: #121212;
@@ -15,24 +21,41 @@
 
 /* 应用于所有元素的基础样式 */
 * {
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'SarasaMonoSC-ExtraLightItalic';
-    color: var(--text-primary);
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'SarasaMonoSC-Light';
+  color: var(--text-primary);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+em {
+  font-family: 'SarasaMonoSC-LightItalic';
+}
+
+strong {
+  font-family: 'SarasaMonoSC-Bold';
+  font-weight: bolder !important;
+  font-size: 1.2em;
+}
+
+em strong {
+  font-family: 'SarasaMonoSC-BoldItalic' !important;
+}
+
+pre * {
+  white-space: pre; /* 保留空格和换行，文本不自动换行 */
 }
 
 /* 为ul和li元素提供特定样式，覆盖上述样式 */
 ol, ul, li {
     padding: revert !important;
-}
-
-body {
-    font-family: 'SarasaMonoSC-ExtraLightItalic';
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    padding: 20px;
-    min-height: 100vh;
 }
 
 .container {
