@@ -758,7 +758,7 @@
           <div class="about-content">
             <div class="about-text">
               <p>
-                23XR Studio 23XR 工作室 是一群初中生因爱好聚集在一起的 IT 工作室（虽然现在真正意义上的工作室成员只有我一个人）
+                23XR Studio 23XR 工作室 是一群学生因爱好聚集在一起的 IT 工作室
               </p>
               <p>
                 我们相信技术的力量可以改变世界。
@@ -955,12 +955,13 @@
               "print(\"展平:\",flatten)"
             ],
             slogans: [
-              '尘埃未定，你我 皆是黑马！',
-              '一切，皆有可能！',
+              '尘埃未定，你我，皆是黑马',
+              '一切，皆有可能',
               '探索未知，创造非凡',
               '创新不止，进步不息',
-              '梦想改变一切！'
+              '梦想改变一切'
             ],
+            slogans_s: [],
             currentSlogan: '',
             sloganIndex: 0,
             charIndex: 0,
@@ -971,7 +972,7 @@
           };
         },
         mounted() {
-          // 等待Header和Footer加载完成后再初始化动画
+          this.slogans_s = this.slogans;
           const self = this; // 保存this引用
           setTimeout(() => {
             self.initAnimations();
@@ -1014,7 +1015,7 @@
           },
           startTypewriter() {
             const type = () => {
-              const currentSlogan = this.slogans[this.sloganIndex];
+              const currentSlogan = this.slogans_s[this.sloganIndex];
               
               if (!this.isDeleting) {
                 // 打字阶段
@@ -1036,6 +1037,7 @@
                   // 删除完毕后切换到下一个标语
                   this.isDeleting = false;
                   this.sloganIndex = (this.sloganIndex + 1) % this.slogans.length;
+                  // 当切换到最后一个标语时，重新对标语进行随机排序
                 }
               }
               
