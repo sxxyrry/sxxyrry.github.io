@@ -4,3 +4,10 @@ DEV/*
 
 # secret 秘密
 .secret
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
