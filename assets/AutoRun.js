@@ -25,6 +25,9 @@ function deepcopy(obj) {
     }
     return copiedObj;
   }
+
+  // 默认返回空对象，防止 undefined
+  return {};
 }
 
 /**
