@@ -4,3 +4,6 @@ DEV/*
 
 # secret 秘密
 .secret
+
+.*
+!.gitignore

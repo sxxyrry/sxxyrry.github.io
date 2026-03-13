@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TTHSD Next - TT 高速下载器 | 23XR Studio</title>
+    <script src="/package/GSAP/code/gsap.min.js"></script>
+    <script src="/package/GSAP/code/ScrollTrigger.min.js"></script>
+    <script src="/package/GSAP/code/ScrollToPlugin.min.js"></script>
+    <script src="/package/Vue/code/vue.global.prod.js"></script>
+    <script src="/package/Marked/code/marked.umd.js"></script>
+
+    <script>
+      /**
+       * 动态加载（强制去除缓存） CSS 的函数
+       * @param {string} src - 要加载的 CSS 的 src 链接
+       * @returns {Promise} 返回一个 Promise 对象，用于处理异步加载
+       */
+      function loadStyle(src) {
+        return new Promise((resolve, reject) => {
+          const link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = src + "?v=" + new Date().getTime(); // 使用时间戳避免缓存
+          link.async = true;
+          link.onload = resolve;
+          link.onerror = reject;
+          document.head.appendChild(link);
+        });
+      }
+
+      /**
+       * 动态加载（强制去除缓存） JS 的函数
+       * @param {string} src - 要加载的 JS 的 src 链接
+       * @returns {Promise} 返回一个 Promise 对象，用于处理异步加载
+       */
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          if (src.includes('?')) {
+            script.src = src + "&v=" + new Date().getTime(); // 使用时间戳避免缓存
+          } else {
+            script.src = src + "?v=" + new Date().getTime(); // 使用时间戳避免缓存
+          }
+          script.async = true;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }
+    </script>
+
+    <script>
+      const quicksJson = JSON.stringify([
+          { "name": "首页", "link": "/#home" },
+          { "name": "关于我们", "link": "/#about" },
+          { "name": "项目展示", "link": "/#projects" },
+          { "name": "团队成员", "link": "/#team" },
+          { "name": "合作者", "link": "/#partners" },
+          { "name": "联系我们", "link": "/#contact" }
+      ]);
+
+      const encodedQuicks = encodeURIComponent(quicksJson);
+
+      loadStyle("../assets/style.css");
+      let scriptArray = [
+        "../assets/AddHeader.js",
+        // "../assets/AddFooter.js",
+        `https://footerjs-sxxyrry.pages.dev/footer.js?name=23XR%20Studio&description=23XR%20Studio&quicks=${encodedQuicks}`,
+        // "../assets/AddIco.js",
+        "../assets/AutoRun.js",
+      ];
+
+      scriptArray.forEach((script) => {
+        loadScript(script);
+      });
+    </script>
+
+    <!-- 样式 -->
+    <link rel="stylesheet" href="/assets/style.css" />
+    <style>
+      body {
+        padding: 0;
+      }
+      .hero {
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 20px 40px;
+        background: linear-gradient(135deg, rgba(99, 96, 255, 0.1) 0%, rgba(255, 107, 74, 0.1) 100%);
+      }
+      .hero-logo {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero .tagline {
+        font-size: 1.3rem;
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+      }
+      .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin: 5px;
+        background: var(--bg-tertiary);
+        color: var(--accent-color);
+      }
+      .badge.active {
+        background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+        color: white;
+      }
+      .badge.deprecated {
+        background: #ff4444;
+        color: white;
+      }
+      .btn-group {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .btn {
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+        color: white;
+        box-shadow: 0 5px 15px rgba(99, 96, 255, 0.4);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(99, 96, 255, 0.5);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        border: 2px solid var(--accent-color);
+      }
+      .btn-secondary:hover {
+        background: var(--accent-color);
+        color: white;
+      }
+      .section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: var(--accent-color);
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+      .feature-card {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 25px;
+        transition: var(--transition);
+        border: 1px solid var(--bg-tertiary);
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-color);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+      .feature-card h3 {
+        color: var(--accent-color);
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+      .feature-card p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .comparison-table th,
+      .comparison-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid var(--bg-tertiary);
+      }
+      .comparison-table th {
+        background: var(--bg-tertiary);
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+      .comparison-table tr:hover {
+        background: rgba(99, 96, 255, 0.05);
+      }
+      .check {
+        color: #4ade80;
+      }
+      .cross {
+        color: #f87171;
+      }
+      .protocol-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+      .protocol-item {
+        background: var(--bg-secondary);
+        border-radius: 10px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--bg-tertiary);
+        transition: var(--transition);
+      }
+      .protocol-item:hover {
+        border-color: var(--accent-color);
+      }
+      .protocol-icon {
+        font-size: 1.5rem;
+      }
+      .platform-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+      .platform-item {
+        background: var(--bg-secondary);
+        border-radius: 8px;
+        padding: 10px 20px;
+        border: 1px solid var(--bg-tertiary);
+      }
+      .language-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+      }
+      .language-item {
+        background: var(--bg-secondary);
+        border-radius: 8px;
+        padding: 12px;
+        text-align: center;
+        border: 1px solid var(--bg-tertiary);
+        transition: var(--transition);
+      }
+      .language-item:hover {
+        border-color: var(--accent-color);
+        transform: scale(1.05);
+      }
+      .info-box {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 4px solid var(--accent-color);
+      }
+      .info-box.warning {
+        border-left-color: #f59e0b;
+        background: rgba(245, 158, 11, 0.1);
+      }
+      .info-box.tip {
+        border-left-color: #10b981;
+        background: rgba(16, 185, 129, 0.1);
+      }
+      footer {
+        text-align: center;
+        padding: 30px;
+        background: var(--bg-secondary);
+        margin-top: 40px;
+      }
+      .back-link {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+        background: var(--bg-secondary);
+        padding: 10px 20px;
+        border-radius: 25px;
+        color: var(--text-secondary);
+        text-decoration: none;
+      }
+      .back-link:hover {
+        color: var(--accent-color);
+      }
+      .section-secondary {
+        background: var(--bg-secondary);
+      }
+      .platform-highlight {
+        border-color: var(--accent-secondary);
+      }
+      .info-box-margin {
+        margin-top: 30px;
+      }
+      .features-margin {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/" class="back-link">
+      ← 返回首页
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="https://images-sxxyrry.pages.dev/TTHSD_Bigger.png" alt="TTHSD Next" class="hero-logo">
+      <h1>TTHSD Next</h1>
+      <p class="tagline">TT 高速下载器 · 下一代高性能跨平台下载引擎核心 SDK</p>
+      <div>
+        <span class="badge active">Rust</span>
+        <span class="badge">跨平台</span>
+        <span class="badge">多语言绑定</span>
+        <span class="badge">零 GC 停顿</span>
+        <span class="badge">AGPL-3.0</span>
+      </div>
+      <div class="btn-group">
+        <a href="https://github.com/TTHSDownloader/TTHSDNext" target="_blank" rel="noopener" class="btn btn-primary">GitHub 仓库</a>
+        <!-- <a href="https://github.com/TTHSDownloader/TTHSDNext/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary">下载最新版</a> -->
+      </div>
+    </section>
+
+    <!-- 核心特性 -->
+    <section class="section">
+      <h2 class="section-title">核心特性</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>7 种下载协议</h3>
+          <p>原生支持 HTTP/HTTPS、HTTP/3 (QUIC)、FTP、SFTP、BitTorrent/Magnet、ED2K、Metalink 4.0</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🖥️</div>
+          <h3>5 大平台覆盖</h3>
+          <p>Windows、Linux、macOS、Android、HarmonyOS 全平台动态库编译</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>8 种语言绑定</h3>
+          <p>Rust、Python、Java/Kotlin、C#/.NET、Node.js、C/C++、Godot、Golang 原生调用</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>极致性能</h3>
+          <p>动态分片工作量窃取算法、TLS 指纹伪装、零 GC 停顿、极低内存占用</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 协议支持 -->
+    <section class="section section-secondary">
+      <h2 class="section-title">支持的下载协议</h2>
+      <div class="protocol-grid">
+        <div class="protocol-item">
+          <span class="protocol-icon">🔒</span>
+          <div><strong>HTTP/HTTPS</strong><br><small>TLS 指纹伪装，最大 64 并发</small></div>
+        </div>
+        <div class="protocol-item">
+          <span class="protocol-icon">🚀</span>
+          <div><strong>HTTP/3 (QUIC)</strong><br><small>自动探测 Alt-Svc，无缝加速</small></div>
+        </div>
+        <div class="protocol-item">
+          <span class="protocol-icon">📁</span>
+          <div><strong>FTP/FTPS</strong><br><small>匿名/密码登录，二进制传输</small></div>
+        </div>
+        <div class="protocol-item">
+          <span class="protocol-icon">🔐</span>
+          <div><strong>SFTP (SSH)</strong><br><small>基于 SSH 隧道，安全传输</small></div>
+        </div>
+        <div class="protocol-item">
+          <span class="protocol-icon">🧲</span>
+          <div><strong>BitTorrent/Magnet</strong><br><small>完整 DHT + PEX 支持</small></div>
+        </div>
+        <div class="protocol-item">
+          <span class="protocol-icon">📥</span>
+          <div><strong>ED2K (eMule)</strong><br><small>独家支持，HTTP 网关代理</small></div>
+        </div>
+        <div class="protocol-item">
+          <span class="protocol-icon">📋</span>
+          <div><strong>Metalink 4.0</strong><br><small>XML 镜像元数据，自动选最优</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 平台支持 -->
+    <section class="section">
+      <h2 class="section-title">平台支持</h2>
+      <div class="platform-grid">
+        <div class="platform-item">🪟 Windows x64/ARM64</div>
+        <div class="platform-item">🐧 Linux x64/ARM64</div>
+        <div class="platform-item">🍎 macOS x64/ARM64</div>
+        <div class="platform-item">🤖 Android (JNI)</div>
+        <div class="platform-item platform-highlight">📱 HarmonyOS（独家）</div>
+      </div>
+      <div class="info-box tip info-box-margin">
+        <strong>💡 独家支持 HarmonyOS</strong><br>
+        TTHSD Next 是市面唯一支持华为鸿蒙系统的下载 SDK，中国市场巨大潜力。
+      </div>
+    </section>
+
+    <!-- 语言绑定 -->
+    <section class="section section-secondary">
+      <h2 class="section-title">多语言绑定</h2>
+      <div class="language-grid">
+        <div class="language-item">🦀 Rust</div>
+        <div class="language-item">🐍 Python</div>
+        <div class="language-item">☕ Java/Kotlin</div>
+        <div class="language-item">💜 C#/.NET</div>
+        <div class="language-item">💚 Node.js</div>
+        <div class="language-item">⚙️ C/C++</div>
+        <div class="language-item">🎮 Godot</div>
+        <div class="language-item">🐹 Golang</div>
+      </div>
+    </section>
+
+    <!-- 性能对比 -->
+    <section class="section">
+      <h2 class="section-title">TTHSD Next vs 主流下载引擎</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>特性</th>
+            <th>TTHSD Next</th>
+            <th>aria2</th>
+            <th>libcurl</th>
+            <th>reqwest</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>核心语言</td>
+            <td><strong>Rust</strong></td>
+            <td>C++</td>
+            <td>C</td>
+            <td>Rust</td>
+          </tr>
+          <tr>
+            <td>HTTP/3 (QUIC)</td>
+            <td><span class="check">✅</span></td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="cross">❌</span></td>
+          </tr>
+          <tr>
+            <td>ED2K 协议</td>
+            <td><span class="check">✅ 独家</span></td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="cross">❌</span></td>
+          </tr>
+          <tr>
+            <td>SFTP 协议</td>
+            <td><span class="check">✅</span></td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="check">✅</span></td>
+            <td><span class="cross">❌</span></td>
+          </tr>
+          <tr>
+            <td>HarmonyOS 支持</td>
+            <td><span class="check">✅ 独家</span></td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="cross">❌</span></td>
+          </tr>
+          <tr>
+            <td>多线程分片</td>
+            <td><span class="check">✅ 内置</span></td>
+            <td><span class="check">✅ 内置</span></td>
+            <td><span class="cross">❌ 需自实现</span></td>
+            <td><span class="cross">❌ 需自实现</span></td>
+          </tr>
+          <tr>
+            <td>原生语言绑定</td>
+            <td><span class="check">✅ 8 种</span></td>
+            <td>仅 RPC</td>
+            <td>FFI</td>
+            <td><span class="check">✅ Rust</span></td>
+          </tr>
+          <tr>
+            <td>零 GC 停顿</td>
+            <td><span class="check">✅</span></td>
+            <td><span class="check">✅</span></td>
+            <td><span class="check">✅</span></td>
+            <td><span class="check">✅</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 技术架构 -->
+    <section class="section section-secondary">
+      <h2 class="section-title">技术架构</h2>
+      <div class="info-box">
+        <strong>架构层次：</strong><br>
+        <code>您的应用程序 (Python/C++/C#/Java) → TTHSD 接口封装 → C ABI 接口 → TTHSD 核心引擎 (Rust) → 多线程下载管理器 / 网络层 / 文件 IO 层</code>
+      </div>
+      <div class="features-grid features-margin">
+        <div class="feature-card">
+          <h3>核心组件</h3>
+          <p>下载任务调度器、HTTP 客户端、分块管理器、进度监控器、事件系统、错误处理器</p>
+        </div>
+        <div class="feature-card">
+          <h3>核心依赖</h3>
+          <p>tokio (异步运行时)、rquest (HTTP 客户端)、quinn/h3 (HTTP/3)、librqbit (BT)、russh (SFTP)</p>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

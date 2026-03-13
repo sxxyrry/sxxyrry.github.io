@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TTHSD GUI - TT 高速下载器图形界面 | 23XR Studio</title>
+    <script src="/package/GSAP/code/gsap.min.js"></script>
+    <script src="/package/GSAP/code/ScrollTrigger.min.js"></script>
+    <script src="/package/GSAP/code/ScrollToPlugin.min.js"></script>
+    <script src="/package/Vue/code/vue.global.prod.js"></script>
+    <script src="/package/Marked/code/marked.umd.js"></script>
+
+    <script>
+      /**
+       * 动态加载（强制去除缓存） CSS 的函数
+       * @param {string} src - 要加载的 CSS 的 src 链接
+       * @returns {Promise} 返回一个 Promise 对象，用于处理异步加载
+       */
+      function loadStyle(src) {
+        return new Promise((resolve, reject) => {
+          const link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = src + "?v=" + new Date().getTime(); // 使用时间戳避免缓存
+          link.async = true;
+          link.onload = resolve;
+          link.onerror = reject;
+          document.head.appendChild(link);
+        });
+      }
+
+      /**
+       * 动态加载（强制去除缓存） JS 的函数
+       * @param {string} src - 要加载的 JS 的 src 链接
+       * @returns {Promise} 返回一个 Promise 对象，用于处理异步加载
+       */
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          if (src.includes('?')) {
+            script.src = src + "&v=" + new Date().getTime(); // 使用时间戳避免缓存
+          } else {
+            script.src = src + "?v=" + new Date().getTime(); // 使用时间戳避免缓存
+          }
+          script.async = true;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }
+    </script>
+
+    <script>
+      const quicksJson = JSON.stringify([
+          { "name": "首页", "link": "/#home" },
+          { "name": "关于我们", "link": "/#about" },
+          { "name": "项目展示", "link": "/#projects" },
+          { "name": "团队成员", "link": "/#team" },
+          { "name": "合作者", "link": "/#partners" },
+          { "name": "联系我们", "link": "/#contact" }
+      ]);
+
+      const encodedQuicks = encodeURIComponent(quicksJson);
+
+      loadStyle("../assets/style.css");
+      let scriptArray = [
+        "../assets/AddHeader.js",
+        // "../assets/AddFooter.js",
+        `https://footerjs-sxxyrry.pages.dev/footer.js?name=23XR%20Studio&description=23XR%20Studio&quicks=${encodedQuicks}`,
+        // "../assets/AddIco.js",
+        "../assets/AutoRun.js",
+      ];
+
+      scriptArray.forEach((script) => {
+        loadScript(script);
+      });
+    </script>
+
+    <!-- 样式 -->
+    <link rel="stylesheet" href="/assets/style.css" />
+    <style>
+      body {
+        padding: 0;
+      }
+      .hero {
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 20px 40px;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(99, 96, 255, 0.1) 100%);
+      }
+      .hero-logo {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        background: linear-gradient(135deg, #10b981 0%, var(--accent-color) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero .tagline {
+        font-size: 1.3rem;
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+      }
+      .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin: 5px;
+        background: var(--bg-tertiary);
+        color: var(--accent-color);
+      }
+      .badge.active {
+        background: linear-gradient(135deg, #10b981, var(--accent-color));
+        color: white;
+      }
+      .btn-group {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .btn {
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #10b981, var(--accent-color));
+        color: white;
+        box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        border: 2px solid #10b981;
+      }
+      .btn-secondary:hover {
+        background: #10b981;
+        color: white;
+      }
+      .section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: #10b981;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+      .feature-card {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 25px;
+        transition: var(--transition);
+        border: 1px solid var(--bg-tertiary);
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: #10b981;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+      .feature-card h3 {
+        color: #10b981;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+      .feature-card p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      .tech-item {
+        background: var(--bg-secondary);
+        border-radius: 10px;
+        padding: 15px 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--bg-tertiary);
+        transition: var(--transition);
+      }
+      .tech-item:hover {
+        border-color: #10b981;
+        transform: scale(1.05);
+      }
+      .tech-icon {
+        font-size: 1.5rem;
+      }
+      .info-box {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 4px solid #10b981;
+      }
+      .info-box.note {
+        border-left-color: var(--accent-color);
+        background: rgba(99, 96, 255, 0.1);
+        margin-top: 30px;
+      }
+      .screenshot-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+      .screenshot {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        border: 1px solid var(--bg-tertiary);
+        max-width: 400px;
+      }
+      .screenshot img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      .download-section {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 30px;
+        text-align: center;
+        margin-top: 30px;
+      }
+      .download-options {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .download-btn {
+        background: var(--bg-tertiary);
+        border-radius: 10px;
+        padding: 15px 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: var(--transition);
+        border: 1px solid var(--bg-tertiary);
+      }
+      .download-btn:hover {
+        border-color: #10b981;
+        background: rgba(16, 185, 129, 0.1);
+      }
+      .section-secondary {
+        background: var(--bg-secondary);
+      }
+      .download-hint {
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+      }
+      .icon-large {
+        font-size: 1.5rem;
+      }
+      .feature-title-green {
+        color: #10b981;
+      }
+      .feature-title-accent {
+        color: var(--accent-color);
+      }
+      .info-box-tip {
+        border-left-color: var(--accent-color);
+        background: rgba(99, 96, 255, 0.1);
+      }
+      footer {
+        text-align: center;
+        padding: 30px;
+        background: var(--bg-secondary);
+        margin-top: 40px;
+      }
+      .user-friendly {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(99, 96, 255, 0.05) 100%);
+      }
+      .back-link {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+        background: var(--bg-secondary);
+        padding: 10px 20px;
+        border-radius: 25px;
+        color: var(--text-secondary);
+        text-decoration: none;
+      }
+      .back-link:hover {
+        color: var(--accent-color);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/" class="back-link">
+      ← 返回首页
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="https://images-sxxyrry.pages.dev/TTHSD_GUI.png" alt="TTHSD GUI" class="hero-logo">
+      <h1>TTHSD GUI</h1>
+      <p class="tagline">TT 高速下载器 · 普通用户友好图形界面版本 （未正式发布）</p>
+      <div>
+        <span class="badge active">Python</span>
+        <span class="badge">PyWebview</span>
+        <span class="badge">Flask</span>
+        <span class="badge">Web 技术</span>
+        <span class="badge">跨平台</span>
+      </div>
+      <div class="btn-group">
+        <!-- <a href="https://github.com/sxxyrry/TTHighSpeedDownloader" target="_blank" rel="noopener" class="btn btn-primary">GitHub 仓库</a> -->
+        <!-- <a href="https://github.com/sxxyrry/TTHighSpeedDownloader/releases" target="_blank" rel="noopener" class="btn btn-secondary">下载发布版</a> -->
+      </div>
+    </section>
+
+    <!-- 产品定位 -->
+    <section class="section user-friendly">
+      <h2 class="section-title">为普通用户设计</h2>
+      <div class="info-box">
+        <strong>🎯 产品定位</strong><br>
+        TTHSD GUI 是基于 TTHSD 核心开发的图形界面版本，专为不需要编程知识的普通用户设计。使用 Python + PyWebview + Flask + Web 技术实现，提供直观易用的下载体验。
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🖱️</div>
+          <h3>图形化操作</h3>
+          <p>无需命令行，通过直观的图形界面完成所有下载操作，适合所有用户</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>批量下载</h3>
+          <p>支持批量添加下载任务，自动管理下载队列，一键下载多个文件</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>实时进度</h3>
+          <p>可视化下载进度显示，实时速度、剩余时间一目了然</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏸️</div>
+          <h3>暂停/恢复</h3>
+          <p>支持暂停和恢复下载，断点续传不怕网络中断</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技术栈 -->
+    <section class="section section-secondary">
+      <h2 class="section-title">技术架构</h2>
+      <div class="tech-stack">
+        <div class="tech-item">
+          <span class="tech-icon">🐍</span>
+          <div><strong>Python</strong><br><small>主程序逻辑</small></div>
+        </div>
+        <div class="tech-item">
+          <span class="tech-icon">🌐</span>
+          <div><strong>PyWebview</strong><br><small>跨平台 GUI 框架</small></div>
+        </div>
+        <div class="tech-item">
+          <span class="tech-icon">🌶️</span>
+          <div><strong>Flask</strong><br><small>Web 服务后端</small></div>
+        </div>
+        <div class="tech-item">
+          <span class="tech-icon">🎨</span>
+          <div><strong>HTML/CSS/JS</strong><br><small>前端界面</small></div>
+        </div>
+        <div class="tech-item">
+          <span class="tech-icon">⚙️</span>
+          <div><strong>TTHSD Core</strong><br><small>下载核心引擎</small></div>
+        </div>
+      </div>
+      <div class="info-box note">
+        <strong>💡 架构说明</strong><br>
+        GUI 版本使用 PyWebview 创建原生窗口，Flask 提供本地 Web 服务，前端使用现代 Web 技术构建 UI，后端调用 TTHSD 核心动态库进行下载。
+      </div>
+    </section>
+
+    <!-- 功能特性 -->
+    <section class="section">
+      <h2 class="section-title">主要功能</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>🔗 多协议支持</h3>
+          <p>支持 HTTP/HTTPS、FTP、BitTorrent、Magnet、ED2K 等多种下载协议</p>
+        </div>
+        <div class="feature-card">
+          <h3>⚡ 多线程下载</h3>
+          <p>自动分片多线程下载，充分利用带宽，提升下载速度</p>
+        </div>
+        <div class="feature-card">
+          <h3>📁 文件管理</h3>
+          <p>自定义保存路径，自动创建目录，智能文件命名</p>
+        </div>
+        <div class="feature-card">
+          <h3>🔔 任务通知</h3>
+          <p>下载完成通知，错误提醒，任务状态实时更新</p>
+        </div>
+        <div class="feature-card">
+          <h3>⚙️ 参数配置</h3>
+          <p>可配置线程数、分块大小、User-Agent 等下载参数</p>
+        </div>
+        <div class="feature-card">
+          <h3>📜 下载历史</h3>
+          <p>记录下载历史，方便查看和管理已下载文件</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 下载 -->
+    <section class="section section-secondary">
+      <h2 class="section-title">获取 TTHSD GUI</h2>
+      <div class="download-section">
+        <p class="download-hint">我们还没有发布版本，请等待发布，谢谢理解！</p>
+        <!-- <p class="download-hint">选择适合您操作系统的版本</p>
+        <div class="download-options">
+          <a href="https://github.com/sxxyrry/TTHighSpeedDownloader/releases" target="_blank" rel="noopener" class="download-btn">
+            <span class="icon-large">🪟</span>
+            <div><strong>Windows</strong><br><small>exe 安装包</small></div>
+          </a>
+          <a href="https://github.com/sxxyrry/TTHighSpeedDownloader" target="_blank" rel="noopener" class="download-btn">
+            <span class="icon-large">🐧</span>
+            <div><strong>Linux</strong><br><small>源码运行</small></div>
+          </a>
+          <a href="https://github.com/sxxyrry/TTHighSpeedDownloader" target="_blank" rel="noopener" class="download-btn">
+            <span class="icon-large">🍎</span>
+            <div><strong>macOS</strong><br><small>源码运行</small></div>
+          </a>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- 与核心版本对比 -->
+    <section class="section">
+      <h2 class="section-title">TTHSD GUI vs TTHSD Core</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3 class="feature-title-green">TTHSD GUI</h3>
+          <p>✅ 图形界面，无需编程<br>✅ 开箱即用<br>✅ 适合普通用户<br>⚠️ 功能相对固定</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title-accent">TTHSD Core / Next</h3>
+          <p>✅ 核心下载引擎<br>✅ 高度可定制<br>✅ 多语言绑定<br>⚠️ 需要编程集成</p>
+        </div>
+      </div>
+      <div class="info-box info-box-tip">
+        <strong>💡 选择建议</strong><br>
+        如果您是普通用户，只需要下载功能，推荐使用 <strong>TTHSD GUI</strong>。<br>
+        如果您是开发者，需要将下载功能集成到自己的应用中，推荐使用 <strong>TTHSD Core / Next</strong>。
+      </div>
+    </section>
+
+  </body>
+</html>

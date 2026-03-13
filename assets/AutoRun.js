@@ -101,7 +101,7 @@ window.addEventListener('click', (e) => {
           return
         }
       }
-      if (relativePath.includes('/index.html') || relativePath.includes('/Special/') || relativePath.includes('#')) {
+      if (relativePath.includes('html') || relativePath.includes('/Special/') || relativePath.includes('#')) {
         window.open(e.target.href, '_self');
         return
       }
