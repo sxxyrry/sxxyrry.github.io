@@ -1,4 +1,4 @@
-const AdvertisingData = [
+var AdvertisingData = [
     {
         id: 1,
         title: "广告位招租",

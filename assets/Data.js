@@ -1,4 +1,4 @@
-const projectsData = [
+var projectsData = [
     {
         id: 1,
         name: " JustHTML 只需网页 工具箱",
@@ -25,7 +25,7 @@ const projectsData = [
     },
 ];
 
-const teamMembersData = [
+var teamMembersData = [
     {
         id: 1,
         name: "是星星与然然呀 sxxyrry",
@@ -71,7 +71,7 @@ const teamMembersData = [
     },
 ];
 
-const partnersData = [
+var partnersData = [
     {
         id: 1,
         name: "XnorsStudio 异或工作室",
