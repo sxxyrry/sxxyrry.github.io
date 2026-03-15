@@ -780,13 +780,13 @@
         margin: -3px 0;
       }
 
-      /* 广告模块样式 */
-      .advertising {
+      /* 推荐模块样式 */
+      .showcase-section {
         padding: 60px 0;
         background: var(--bg-secondary);
       }
 
-      .advertising-grid {
+      .showcase-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 25px;
@@ -795,7 +795,7 @@
         padding: 0 20px;
       }
 
-      .ad-card {
+      .showcase-card {
         border-radius: 16px;
         overflow: hidden;
         position: relative;
@@ -808,12 +808,12 @@
         text-decoration: none;
       }
 
-      .ad-card:hover {
+      .showcase-card:hover {
         transform: translateY(-8px) scale(1.02);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
       }
 
-      .ad-card-bg {
+      .showcase-card-bg {
         position: absolute;
         top: 0;
         left: 0;
@@ -825,11 +825,11 @@
         transition: transform 0.5s ease;
       }
 
-      .ad-card:hover .ad-card-bg {
+      .showcase-card:hover .showcase-card-bg {
         transform: scale(1.05);
       }
 
-      .ad-card-overlay {
+      .showcase-card-overlay {
         position: absolute;
         top: 0;
         left: 0;
@@ -839,28 +839,28 @@
         z-index: 2;
       }
 
-      .ad-card-content {
+      .showcase-card-content {
         position: relative;
         z-index: 3;
         padding: 25px;
         color: white;
       }
 
-      .ad-card-title {
+      .showcase-card-title {
         font-size: 1.4rem;
         font-weight: bold;
         margin-bottom: 8px;
         color: white;
       }
 
-      .ad-card-description {
+      .showcase-card-desc {
         font-size: 0.95rem;
         color: rgba(255, 255, 255, 0.85);
         margin-bottom: 15px;
         line-height: 1.5;
       }
 
-      .ad-card-btn {
+      .showcase-card-btn {
         display: inline-block;
         padding: 10px 24px;
         background: linear-gradient(135deg, #28e4ab, #4652c0);
@@ -871,12 +871,12 @@
         transition: var(--transition);
       }
 
-      .ad-card:hover .ad-card-btn {
+      .showcase-card:hover .showcase-card-btn {
         transform: translateX(5px);
         box-shadow: 0 5px 15px rgba(99, 96, 255, 0.4);
       }
 
-      .ad-empty {
+      .showcase-empty {
         text-align: center;
         padding: 40px;
         color: var(--text-secondary);
@@ -884,13 +884,60 @@
       }
 
       @media (max-width: 768px) {
-        .advertising-grid {
+        .showcase-grid {
           grid-template-columns: 1fr;
         }
 
-        .ad-card-title {
+        .showcase-card-title {
           font-size: 1.2rem;
         }
+      }
+
+      /* 广告拦截器提示样式 */
+      .adblock-notice {
+        text-align: center;
+        padding: 40px 20px;
+        max-width: 500px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, rgba(255, 107, 74, 0.1), rgba(99, 96, 255, 0.1));
+        border: 1px solid rgba(255, 107, 74, 0.3);
+        border-radius: 16px;
+      }
+
+      .adblock-notice-icon {
+        color: #ff6b4a;
+        margin-bottom: 16px;
+      }
+
+      .adblock-notice-title {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+      }
+
+      .adblock-notice-text {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .adblock-notice-btn {
+        background: linear-gradient(135deg, #6360ff, #ff6b4a);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .adblock-notice-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 20px rgba(99, 96, 255, 0.4);
       }
     </style>
   </head>
@@ -1062,32 +1109,55 @@
           </div>
         </section>
 
-        <hr v-if="advertisements.length > 0" class="section-divider">
+        <hr v-if="showcaseItems.length > 0" class="section-divider">
 
-        <!-- 广告模块 -->
-        <section v-if="advertisements.length > 0" class="advertising">
+        <!-- 推荐模块 -->
+        <section v-if="showcaseItems.length > 0" class="showcase-section" ref="showcaseSection">
           <h2 class="section-title slide-in-left">推荐</h2>
-          <div class="advertising-grid">
+          
+          <!-- 广告拦截器检测提示 - 只有被拦截时显示 -->
+          <div v-if="showcaseBlocked" class="adblock-notice">
+            <div class="adblock-notice-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 class="adblock-notice-title">推荐内容被拦截</h3>
+            <p class="adblock-notice-text">
+              您的广告拦截器拦截了推荐内容的显示。如果您希望看到完整内容，请将本站加入白名单后刷新页面。
+            </p>
+            <button class="adblock-notice-btn" @click="retryAfterWhitelist">
+              我已添加白名单，刷新页面
+            </button>
+          </div>
+          
+          <div class="showcase-grid" v-show="!showcaseBlocked" ref="showcaseGrid">
+            <!-- 诱饵元素：用于检测广告拦截器 -->
+            <div class="ad-banner adsbox ad-placeholder" ref="adBait" style="position:absolute;left:-9999px;"></div>
+            
+            <!-- 正常的推荐卡片 -->
             <a
-              v-for="(ad, index) in advertisements"
-              :key="ad.id"
-              :href="ad.link"
+              v-for="(item, index) in showcaseItems"
+              :key="item.id"
+              :href="item.link"
               target="_blank"
-              class="ad-card"
-              :ref="`adCard${index}`"
-              :style="{ background: ad.bgColor || 'var(--bg-tertiary)' }"
-              @click="adClick(ad.link)"
+              class="showcase-card"
+              :ref="`showcaseCard${index}`"
+              :style="{ background: item.bgColor || 'var(--bg-tertiary)' }"
+              @click="handleShowcaseClick(item.link)"
             >
               <div 
-                v-if="ad.image" 
-                class="ad-card-bg" 
-                :style="{ backgroundImage: `url(${ad.image})` }"
+                v-if="item.image" 
+                class="showcase-card-bg" 
+                :style="{ backgroundImage: `url(${item.image})` }"
               ></div>
-              <div class="ad-card-overlay"></div>
-              <div class="ad-card-content">
-                <h3 class="ad-card-title">{{ ad.title }}</h3>
-                <p class="ad-card-description">{{ ad.description }}</p>
-                <span class="ad-card-btn">{{ ad.buttonText || '了解更多' }}</span>
+              <div class="showcase-card-overlay"></div>
+              <div class="showcase-card-content">
+                <h3 class="showcase-card-title">{{ item.title }}</h3>
+                <p class="showcase-card-desc">{{ item.description }}</p>
+                <span class="showcase-card-btn">{{ item.buttonText || '了解更多' }}</span>
               </div>
             </a>
           </div>
@@ -1187,7 +1257,8 @@
             projects: window.projectsData || [],
             teamMembers: window.teamMembersData || [],
             partners: window.partnersData || [],
-            advertisements: window.AdvertisingData || [],
+            showcaseItems: window.ShowcaseData || [],
+            showcaseBlocked: false,
             contactForm: {
               name: "",
               email: "",
@@ -1240,6 +1311,7 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
             self.createParticles();
             self.initScrollAnimations();
             self.startTypewriter(); // 启动打字机效果
+            self.detectAdBlock(); // 检测广告拦截器
           }, 100);
         },
         methods: {
@@ -1340,10 +1412,85 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
               message: "",
             };
           },
-          adClick(link) {
+          handleShowcaseClick(link) {
             if (link) {
               window.open(link);
             }
+          },
+          detectAdBlock() {
+            // 使用诱饵元素检测广告拦截器
+            // 创建一个带有常见广告class名的诱饵元素
+            const bait = document.createElement('div');
+            bait.className = 'ad-banner adsbox ad-placeholder pub_300x250 text-ad textAd ad_text adServer';
+            bait.style.cssText = 'width: 1px !important; height: 1px !important; position: absolute !important; left: -10000px !important; top: -1000px !important;';
+            bait.innerHTML = '&nbsp;';
+            document.body.appendChild(bait);
+            
+            // 初始检测
+            const checkBlocked = () => {
+              const isBlocked = !bait || 
+                               bait.offsetParent === null ||
+                               bait.offsetHeight === 0 ||
+                               bait.offsetWidth === 0 ||
+                               getComputedStyle(bait).display === 'none' ||
+                               getComputedStyle(bait).visibility === 'hidden';
+              return isBlocked;
+            };
+            
+            // 延迟检测（给广告拦截器时间处理）
+            setTimeout(() => {
+              if (checkBlocked()) {
+                this.showcaseBlocked = true;
+              }
+              // 移除诱饵
+              if (bait.parentNode) {
+                bait.parentNode.removeChild(bait);
+              }
+            }, 100);
+            
+            // 使用 MutationObserver 监听 showcase-grid 是否被修改
+            this.$nextTick(() => {
+              const grid = this.$refs.showcaseGrid;
+              if (grid) {
+                const observer = new MutationObserver((mutations) => {
+                  mutations.forEach((mutation) => {
+                    // 检查是否有节点被移除
+                    if (mutation.type === 'childList' && mutation.removedNodes.length > 0) {
+                      // 检查是否是卡片被移除
+                      mutation.removedNodes.forEach((node) => {
+                        if (node.classList && node.classList.contains('showcase-card')) {
+                          this.showcaseBlocked = true;
+                        }
+                      });
+                    }
+                    // 检查样式变化
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                      const target = mutation.target;
+                      if (target.classList && target.classList.contains('showcase-card')) {
+                        const display = getComputedStyle(target).display;
+                        if (display === 'none') {
+                          this.showcaseBlocked = true;
+                        }
+                      }
+                    }
+                  });
+                });
+                
+                observer.observe(grid, {
+                  childList: true,
+                  subtree: true,
+                  attributes: true,
+                  attributeFilter: ['style', 'class']
+                });
+                
+                // 保存 observer 引用以便后续清理
+                this.adBlockObserver = observer;
+              }
+            });
+          },
+          retryAfterWhitelist() {
+            // 刷新页面重新加载
+            location.reload();
           },
           toggleMobileMenu() {
             this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -1479,11 +1626,11 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
               });
             });
 
-            // 广告卡片动画
-            this.advertisements.forEach((_, index) => {
-              gsap.to(this.$refs[`adCard${index}`], {
+            // 推荐卡片动画
+            this.showcaseItems.forEach((_, index) => {
+              gsap.to(this.$refs[`showcaseCard${index}`], {
                 scrollTrigger: {
-                  trigger: ".advertising",
+                  trigger: ".showcase-section",
                   start: "top 80%",
                   end: "bottom 20%",
                   toggleActions: "play none none reverse",
@@ -1578,11 +1725,12 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
 
       
     // 等待所有脚本加载完成后初始化应用
-    // 注意：Data.js 和 AdvertisingData.js 已在 head 中同步加载
+    // 注意：Data.js 和 ShowcaseData.js 已在 head 中同步加载
     Promise.all([
       loadScript('./assets/Tools.js'),
       loadScript('./assets/AutoRun.js'),
-      loadScript('./assets/AdvertisingData.js'),
+      loadScript('./assets/Data.js'),
+      loadScript('./assets/ShowcaseData.js'),
       fetch('./README.md?v=' + Date.now())
         .then(rep => rep.text())
         .then(text => {
@@ -1599,7 +1747,7 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
       window.projectsData = deepcopy(typeof projectsData !== 'undefined' ? projectsData : []);
       window.teamMembersData = deepcopy(typeof teamMembersData !== 'undefined' ? teamMembersData : []);
       window.partnersData = deepcopy(typeof partnersData !== 'undefined' ? partnersData : []);
-      window.AdvertisingData = deepcopy(typeof AdvertisingData !== 'undefined' ? AdvertisingData : []);
+      window.ShowcaseData = deepcopy(typeof ShowcaseData !== 'undefined' ? ShowcaseData : []);
       init_app();
     })
     </script>

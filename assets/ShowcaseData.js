@@ -1,4 +1,4 @@
-var AdvertisingData = [
+const ShowcaseData = [
     {
         id: 1,
         title: "广告位招租",
