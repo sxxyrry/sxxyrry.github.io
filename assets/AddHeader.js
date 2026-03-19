@@ -23,7 +23,7 @@ class StudioHeader {
             <div class="nav-container">
                 <a href="#" class="logo">
                     <i class="fas fa-cube"></i>
-                    23XRStudio
+                    TT23XRStudio
                 </a>
                 
                 <button class="mobile-menu-btn">
@@ -34,7 +34,7 @@ class StudioHeader {
                     <a href="/#home" class="nav-link">首页</a>
                     <a href="/#about" class="nav-link">关于我们</a>
                     <a href="/#projects" class="nav-link">项目展示</a>
-                    <a href="/#team" class="nav-link">团队成员</a>
+                    <a href="/#timeline" class="nav-link">发展历程</a>
                     <a href="/#contact" class="nav-link">联系我们</a>
                 </div>
             </div>

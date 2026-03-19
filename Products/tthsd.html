@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TTHSD - TT 高速下载器 | 23XR Studio</title>
+    <title>TTHSD - TT 高速下载器 | TT23XR Studio</title>
     <script src="/package/GSAP/code/gsap.min.js"></script>
     <script src="/package/GSAP/code/ScrollTrigger.min.js"></script>
     <script src="/package/GSAP/code/ScrollToPlugin.min.js"></script>
@@ -56,6 +56,7 @@
           { "name": "项目展示", "link": "/#projects" },
           { "name": "团队成员", "link": "/#team" },
           { "name": "合作者", "link": "/#partners" },
+          { "name": "发展历程", "link": "/#timeline" },
           { "name": "联系我们", "link": "/#contact" }
       ]);
 
@@ -65,7 +66,7 @@
       let scriptArray = [
         "../assets/AddHeader.js",
         // "../assets/AddFooter.js",
-        `https://footerjs-sxxyrry.pages.dev/footer.js?name=23XR%20Studio&description=23XR%20Studio&quicks=${encodedQuicks}`,
+        `https://footerjs-sxxyrry.pages.dev/footer.js?name=TT23XR%20Studio&description=TT23XR%20Studio&quicks=${encodedQuicks}`,
         // "../assets/AddIco.js",
         "../assets/AutoRun.js",
       ];
@@ -352,6 +353,7 @@
       <h1>TTHSD</h1>
       <p class="subtitle">TT 高速下载器</p>
       <p class="tagline">跨平台 · 多协议 · 高性能下载引擎</p>
+      <p class="tips">版权属于 TT23XR Studio</p>
       <p class="tips">这是一个消歧义界面</p>
     </section>
 
@@ -362,7 +364,7 @@
 
       <div class="version-cards">
         <!-- TTHSD Next -->
-        <a href="tthsd_next.html" class="version-card recommended">
+        <a href="tthsd_next.html" onclick="window.open('tthsd_next.html', '_blank')" class="version-card recommended">
           <div class="card-header">
             <div class="card-icon next">🚀</div>
             <div class="card-title-group">
@@ -398,7 +400,7 @@
         </a>
 
         <!-- TTHSD GUI -->
-        <a href="tthsd_gui.html" class="version-card">
+        <a href="tthsd_gui.html" onclick="window.open('tthsd_gui.html', '_blank')" class="version-card">
           <div class="card-header">
             <div class="card-icon gui">🖥️</div>
             <div class="card-title-group">
@@ -433,7 +435,7 @@
         </a>
 
         <!-- TTHSD Golang -->
-        <a href="tthsd_golang.html" class="version-card deprecated">
+        <a href="tthsd_golang.html" onclick="window.open('tthsd_golang.html', '_blank')" class="version-card deprecated">
           <div class="card-header">
             <div class="card-icon golang">📦</div>
             <div class="card-title-group">
