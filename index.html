@@ -64,11 +64,12 @@
 
       loadStyle("../assets/style.css");
       let scriptArray = [
-        "../assets/AddHeader.js",
+        "/assets/AddHeader.js",
         // "../assets/AddFooter.js",
         `https://footerjs-sxxyrry.pages.dev/footer.js?name=TT23XR%20Studio&description=TT23XR%20Studio&quicks=${encodedQuicks}`,
         // "../assets/AddIco.js",
-        "../assets/AutoRun.js",
+        "/assets/AutoRun.js",
+        "/assets/pointer.js",
       ];
 
       scriptArray.forEach((script) => {
@@ -1131,8 +1132,8 @@
         <section id="home" class="hero">
           <div class="particles" ref="particlesContainer"></div>
           <div class="hero-content">
-            <h1 class="fade-in">TT23XR Studio TT23XR 工作室</h1>
-            <p class="hero-subtitle fade-in">
+            <h1 class="fade-in _target">TT23XR Studio TT23XR 工作室</h1>
+            <p class="hero-subtitle fade-in _target">
               TT23XR 工作室 · {{ currentSlogan }}<span class="cursor">|</span>
             </p>
             <div class="hero-buttons">
@@ -1150,17 +1151,17 @@
           <h2 class="section-title slide-in-left">关于我们</h2>
           <div class="about-content">
             <div class="about-text">
-              <p>
+              <p class="_target">
                 23XR Studio 23XR 工作室 是一群学生因爱好聚集在一起的 IT 工作室
               </p>
-              <p>
+              <p class="_target">
                 我们相信技术的力量可以改变世界。
                 <br>
                 我们通过代码创造价值。
               </p>
             </div>
-            <div class="about-image">
-              <div class="code-display">
+            <div class="about-image _target">
+              <div class="code-display _target">
                 <div
                   v-for="(line, index) in codeLines"
                   :key="index"
@@ -1192,10 +1193,10 @@
                 <img :src="project.icon" alt="icon">
               </div>
               <div class="project-content">
-                <h3 class="project-title">{{ project.name }}</h3>
-                <p class="project-description">{{ project.description }}</p>
-                <div class="project-tags">
-                  <span v-for="tag in project.tags" :key="tag" class="tag"
+                <h3 class="project-title _target">{{ project.name }}</h3>
+                <p class="project-description _target">{{ project.description }}</p>
+                <div class="project-tags ">
+                  <span v-for="tag in project.tags" :key="tag" class="tag _target"
                     >{{ tag }}</span
                   >
                 </div>
@@ -1217,14 +1218,14 @@
               <div class="member-avatar">
                 <img :src="member.avatar" alt="avatar">
               </div>
-              <h3 class="member-name">{{ member.name }}</h3>
-              <p class="member-role">{{ member.role }}</p>
-              <p v-if="member.sign" class="member-sign">{{ member.sign }}</p>
+              <h3 class="member-name _target">{{ member.name }}</h3>
+              <p class="member-role _target">{{ member.role }}</p>
+              <p v-if="member.sign" class="member-sign _target">{{ member.sign }}</p>
               <div class="member-skills">
                 <span
                   v-for="skill in member.skills"
                   :key="skill"
-                  class="skill-tag"
+                  class="skill-tag _target"
                   >{{ skill }}</span
                 >
               </div>
@@ -1260,15 +1261,15 @@
               <div class="member-avatar">
                 <img :src="partner.avatar" alt="avatar">
               </div>
-              <h3 class="member-name">{{ partner.name }}</h3>
-              <p class="member-role">{{ partner.role }}</p>
-              <p v-if="partner.sign" class="member-sign">{{ partner.sign }}</p>
-              <p v-if="partner.slogan" class="partner-slogan">{{ partner.slogan }}</p>
+              <h3 class="member-name _target">{{ partner.name }}</h3>
+              <p class="member-role _target">{{ partner.role }}</p>
+              <p v-if="partner.sign" class="member-sign _target">{{ partner.sign }}</p>
+              <p v-if="partner.slogan" class="partner-slogan _target">{{ partner.slogan }}</p>
               <div class="member-skills">
                 <span
                   v-for="skill in partner.skills"
                   :key="skill"
-                  class="skill-tag"
+                  class="skill-tag _target"
                   >{{ skill }}</span
                 >
               </div>
@@ -1304,8 +1305,8 @@
             >
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <div class="timeline-date">{{ item.time.year }}年{{ item.time.month }}月</div>
-                <div class="timeline-events">
+                <div class="timeline-date _target">{{ item.time.year }}年{{ item.time.month }}月</div>
+                <div class="timeline-events _target">
                   <div v-for="(event, eventIndex) in item.event" :key="eventIndex" class="timeline-event">
                     {{ event }}
                   </div>
@@ -1322,7 +1323,7 @@
           <h2 class="section-title slide-in-left">推荐</h2>
           
           <!-- 广告拦截器检测提示 - 只有被拦截时显示 -->
-          <div v-if="showcaseBlocked" class="adblock-notice">
+          <div v-if="showcaseBlocked" class="adblock-notice _target">
             <div class="adblock-notice-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -1339,7 +1340,7 @@
             </button>
           </div>
           
-          <div class="showcase-grid" v-show="!showcaseBlocked" ref="showcaseGrid">
+          <div class="showcase-grid _target" v-show="!showcaseBlocked" ref="showcaseGrid">
             <!-- 诱饵元素：用于检测广告拦截器 -->
             <div class="ad-banner adsbox ad-placeholder" ref="adBait" style="position:absolute;left:-9999px;"></div>
             
@@ -1349,21 +1350,21 @@
               :key="item.id"
               :href="item.link"
               target="_blank"
-              class="showcase-card"
+              class="showcase-card _target"
               :ref="`showcaseCard${index}`"
               :style="{ background: item.bgColor || 'var(--bg-tertiary)' }"
               @click="handleShowcaseClick(item.link)"
             >
               <div 
                 v-if="item.image" 
-                class="showcase-card-bg" 
+                class="showcase-card-bg _target" 
                 :style="{ backgroundImage: `url(${item.image})` }"
               ></div>
-              <div class="showcase-card-overlay"></div>
-              <div class="showcase-card-content">
-                <h3 class="showcase-card-title">{{ item.title }}</h3>
-                <p class="showcase-card-desc">{{ item.description }}</p>
-                <span class="showcase-card-btn">{{ item.buttonText || '了解更多' }}</span>
+              <div class="showcase-card-overlay _target"></div>
+              <div class="showcase-card-content _target">
+                <h3 class="showcase-card-title _target">{{ item.title }}</h3>
+                <p class="showcase-card-desc _target">{{ item.description }}</p>
+                <span class="showcase-card-btn _target">{{ item.buttonText || '了解更多' }}</span>
               </div>
             </a>
           </div>
@@ -1371,8 +1372,8 @@
 
         <!-- 联系我们 -->
         <section id="contact" class="contact">
-          <h2 class="section-title slide-in-right">联系我们</h2>
-          <div class="contact-content">
+          <h2 class="section-title slide-in-rightc_target">联系我们</h2>
+          <div class="contact-content _target">
             <p>
               如果您对我们的项目感兴趣，或者想了解更多关于我们工作室的信息，请随时与我们联系。
               <br>
@@ -1962,11 +1963,11 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
     // 等待所有脚本加载完成后初始化应用
     // 注意：Data.js 和 ShowcaseData.js 已在 head 中同步加载
     Promise.all([
-      loadScript('./assets/Tools.js'),
-      loadScript('./assets/AutoRun.js'),
-      loadScript('./assets/Data.js'),
-      loadScript('./assets/ShowcaseData.js'),
-      loadScript('./assets/Timeline.js'),
+      loadScript('/assets/Tools.js'),
+      loadScript('/assets/AutoRun.js'),
+      loadScript('/assets/Data.js'),
+      loadScript('/assets/ShowcaseData.js'),
+      loadScript('/assets/Timeline.js'),
       fetch('./README.md?v=' + Date.now())
         .then(rep => rep.text())
         .then(text => {

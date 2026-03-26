@@ -64,11 +64,12 @@
 
       loadStyle("../assets/style.css");
       let scriptArray = [
-        "../assets/AddHeader.js",
+        "/assets/AddHeader.js",
         // "../assets/AddFooter.js",
         `https://footerjs-sxxyrry.pages.dev/footer.js?name=TT23XR%20Studio&description=TT23XR%20Studio&quicks=${encodedQuicks}`,
         // "../assets/AddIco.js",
-        "../assets/AutoRun.js",
+        "/assets/AutoRun.js",
+        "/assets/pointer.js",
       ];
 
       scriptArray.forEach((script) => {
@@ -339,9 +340,9 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <img src="https://images-sxxyrry.pages.dev/TTHSD_Bigger.png" alt="TTHSD Next" class="hero-logo">
-      <h1>TTHSD Next</h1>
-      <p class="tagline">TT 高速下载器 · 下一代高性能跨平台下载引擎核心 SDK</p>
+      <img src="https://images-sxxyrry.pages.dev/TTHSD_Bigger.png" alt="TTHSD Next" class="hero-logo _target">
+      <h1 class="_target">TTHSD Next</h1>
+      <p class="tagline _target">TT 高速下载器 · 下一代高性能跨平台下载引擎核心 SDK</p>
       <div>
         <span class="badge active">Rust</span>
         <span class="badge">跨平台</span>
@@ -357,25 +358,25 @@
     </section>
 
     <!-- 核心特性 -->
-    <section class="section">
-      <h2 class="section-title">核心特性</h2>
-      <div class="features-grid">
-        <div class="feature-card">
+    <section class="section _target">
+      <h2 class="section-title _target">核心特性</h2>
+      <div class="features-grid _target">
+        <div class="feature-card _target">
           <div class="feature-icon">🌐</div>
           <h3>7 种下载协议</h3>
           <p>原生支持 HTTP/HTTPS、HTTP/3 (QUIC)、FTP、SFTP、BitTorrent/Magnet、ED2K、Metalink 4.0</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <div class="feature-icon">🖥️</div>
           <h3>5 大平台覆盖</h3>
           <p>Windows、Linux、macOS、Android、HarmonyOS 全平台动态库编译</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <div class="feature-icon">🔗</div>
           <h3>8 种语言绑定</h3>
           <p>Rust、Python、Java/Kotlin、C#/.NET、Node.js、C/C++、Godot、Golang 原生调用</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <div class="feature-icon">⚡</div>
           <h3>极致性能</h3>
           <p>动态分片工作量窃取算法、TLS 指纹伪装、零 GC 停顿、极低内存占用</p>
@@ -384,34 +385,34 @@
     </section>
 
     <!-- 协议支持 -->
-    <section class="section section-secondary">
-      <h2 class="section-title">支持的下载协议</h2>
-      <div class="protocol-grid">
-        <div class="protocol-item">
+    <section class="section section-secondary _target">
+      <h2 class="section-title _target">支持的下载协议</h2>
+      <div class="protocol-grid _target">
+        <div class="protocol-item _target">
           <span class="protocol-icon">🔒</span>
           <div><strong>HTTP/HTTPS</strong><br><small>TLS 指纹伪装，最大 64 并发</small></div>
         </div>
-        <div class="protocol-item">
+        <div class="protocol-item _target">
           <span class="protocol-icon">🚀</span>
           <div><strong>HTTP/3 (QUIC)</strong><br><small>自动探测 Alt-Svc，无缝加速</small></div>
         </div>
-        <div class="protocol-item">
+        <div class="protocol-item _target">
           <span class="protocol-icon">📁</span>
           <div><strong>FTP/FTPS</strong><br><small>匿名/密码登录，二进制传输</small></div>
         </div>
-        <div class="protocol-item">
+        <div class="protocol-item _target">
           <span class="protocol-icon">🔐</span>
           <div><strong>SFTP (SSH)</strong><br><small>基于 SSH 隧道，安全传输</small></div>
         </div>
-        <div class="protocol-item">
+        <div class="protocol-item _target">
           <span class="protocol-icon">🧲</span>
           <div><strong>BitTorrent/Magnet</strong><br><small>完整 DHT + PEX 支持</small></div>
         </div>
-        <div class="protocol-item">
+        <div class="protocol-item _target">
           <span class="protocol-icon">📥</span>
           <div><strong>ED2K (eMule)</strong><br><small>独家支持，HTTP 网关代理</small></div>
         </div>
-        <div class="protocol-item">
+        <div class="protocol-item _target">
           <span class="protocol-icon">📋</span>
           <div><strong>Metalink 4.0</strong><br><small>XML 镜像元数据，自动选最优</small></div>
         </div>
@@ -419,14 +420,14 @@
     </section>
 
     <!-- 平台支持 -->
-    <section class="section">
-      <h2 class="section-title">平台支持</h2>
-      <div class="platform-grid">
-        <div class="platform-item">🪟 Windows x64/ARM64</div>
-        <div class="platform-item">🐧 Linux x64/ARM64</div>
-        <div class="platform-item">🍎 macOS x64/ARM64</div>
-        <div class="platform-item">🤖 Android (JNI)</div>
-        <div class="platform-item platform-highlight">📱 HarmonyOS（独家）</div>
+    <section class="section _target">
+      <h2 class="section-title _target">平台支持</h2>
+      <div class="platform-grid _target">
+        <div class="platform-item _target">🪟 Windows x64/ARM64</div>
+        <div class="platform-item _target">🐧 Linux x64/ARM64</div>
+        <div class="platform-item _target">🍎 macOS x64/ARM64</div>
+        <div class="platform-item _target">🤖 Android (JNI)</div>
+        <div class="platform-item platform-highlight _target">📱 HarmonyOS（独家）</div>
       </div>
       <div class="info-box tip info-box-margin">
         <strong>💡 独家支持 HarmonyOS</strong><br>
@@ -435,107 +436,107 @@
     </section>
 
     <!-- 语言绑定 -->
-    <section class="section section-secondary">
-      <h2 class="section-title">多语言绑定</h2>
-      <div class="language-grid">
-        <div class="language-item">🦀 Rust</div>
-        <div class="language-item">🐍 Python</div>
-        <div class="language-item">☕ Java/Kotlin</div>
-        <div class="language-item">💜 C#/.NET</div>
-        <div class="language-item">💚 Node.js</div>
-        <div class="language-item">⚙️ C/C++</div>
-        <div class="language-item">🎮 Godot</div>
-        <div class="language-item">🐹 Golang</div>
+    <section class="section section-secondary _target">
+      <h2 class="section-title _target">多语言绑定</h2>
+      <div class="language-grid _target">
+        <div class="language-item _target">🦀 Rust</div>
+        <div class="language-item _target">🐍 Python</div>
+        <div class="language-item _target">☕ Java/Kotlin</div>
+        <div class="language-item _target">💜 C#/.NET</div>
+        <div class="language-item _target">💚 Node.js</div>
+        <div class="language-item _target">⚙️ C/C++</div>
+        <div class="language-item _target">🎮 Godot</div>
+        <div class="language-item _target">🐹 Golang</div>
       </div>
     </section>
 
     <!-- 性能对比 -->
-    <section class="section">
-      <h2 class="section-title">TTHSD Next vs 主流下载引擎</h2>
-      <table class="comparison-table">
+    <section class="section _target">
+      <h2 class="section-title _target">TTHSD Next vs 主流下载引擎</h2>
+      <table class="comparison-table _target">
         <thead>
           <tr>
-            <th>特性</th>
-            <th>TTHSD Next</th>
-            <th>aria2</th>
-            <th>libcurl</th>
-            <th>reqwest</th>
+            <th class="_target">特性</th>
+            <th class="_target">TTHSD Next</th>
+            <th class="_target">aria2</th>
+            <th class="_target">libcurl</th>
+            <th class="_target">reqwest</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>核心语言</td>
-            <td><strong>Rust</strong></td>
-            <td>C++</td>
-            <td>C</td>
-            <td>Rust</td>
+            <td class="_target">核心语言</td>
+            <td class="_target"><strong>Rust</strong></td>
+            <td class="_target">C++</td>
+            <td class="_target">C</td>
+            <td class="_target">Rust</td>
           </tr>
           <tr>
-            <td>HTTP/3 (QUIC)</td>
-            <td><span class="check">✅</span></td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="cross">❌</span></td>
+            <td class="_target">HTTP/3 (QUIC)</td>
+            <td class="_target"><span class="check">✅</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
           </tr>
           <tr>
-            <td>ED2K 协议</td>
-            <td><span class="check">✅ 独家</span></td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="cross">❌</span></td>
+            <td class="_target">ED2K 协议</td>
+            <td class="_target"><span class="check">✅ 独家</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
           </tr>
           <tr>
-            <td>SFTP 协议</td>
-            <td><span class="check">✅</span></td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="check">✅</span></td>
-            <td><span class="cross">❌</span></td>
+            <td class="_target">SFTP 协议</td>
+            <td class="_target"><span class="check">✅</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
+            <td class="_target"><span class="check">✅</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
           </tr>
           <tr>
-            <td>HarmonyOS 支持</td>
-            <td><span class="check">✅ 独家</span></td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="cross">❌</span></td>
+            <td class="_target">HarmonyOS 支持</td>
+            <td class="_target"><span class="check">✅ 独家</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
+            <td class="_target"><span class="cross">❌</span></td>
           </tr>
           <tr>
-            <td>多线程分片</td>
-            <td><span class="check">✅ 内置</span></td>
-            <td><span class="check">✅ 内置</span></td>
-            <td><span class="cross">❌ 需自实现</span></td>
-            <td><span class="cross">❌ 需自实现</span></td>
+            <td class="_target">多线程分片</td>
+            <td class="_target"><span class="check">✅ 内置</span></td>
+            <td class="_target"><span class="check">✅ 内置</span></td>
+            <td class="_target"><span class="cross">❌ 需自实现</span></td>
+            <td class="_target"><span class="cross">❌ 需自实现</span></td>
           </tr>
           <tr>
-            <td>原生语言绑定</td>
-            <td><span class="check">✅ 8 种</span></td>
-            <td>仅 RPC</td>
-            <td>FFI</td>
-            <td><span class="check">✅ Rust</span></td>
+            <td class="_target">原生语言绑定</td>
+            <td class="_target"><span class="check">✅ 8 种</span></td>
+            <td class="_target">仅 RPC</td>
+            <td class="_target">FFI</td>
+            <td class="_target"><span class="check">✅ Rust</span></td>
           </tr>
           <tr>
-            <td>零 GC 停顿</td>
-            <td><span class="check">✅</span></td>
-            <td><span class="check">✅</span></td>
-            <td><span class="check">✅</span></td>
-            <td><span class="check">✅</span></td>
+            <td class="_target">零 GC 停顿</td>
+            <td class="_target"><span class="check">✅</span></td>
+            <td class="_target"><span class="check">✅</span></td>
+            <td class="_target"><span class="check">✅</span></td>
+            <td class="_target"><span class="check">✅</span></td>
           </tr>
         </tbody>
       </table>
     </section>
 
     <!-- 技术架构 -->
-    <section class="section section-secondary">
-      <h2 class="section-title">技术架构</h2>
-      <div class="info-box">
+    <section class="section section-secondary _target">
+      <h2 class="section-title _target">技术架构</h2>
+      <div class="info-box _target">
         <strong>架构层次：</strong><br>
         <code>您的应用程序 (Python/C++/C#/Java) → TTHSD 接口封装 → C ABI 接口 → TTHSD 核心引擎 (Rust) → 多线程下载管理器 / 网络层 / 文件 IO 层</code>
       </div>
-      <div class="features-grid features-margin">
-        <div class="feature-card">
+      <div class="features-grid features-margin _target">
+        <div class="feature-card _target">
           <h3>核心组件</h3>
           <p>下载任务调度器、HTTP 客户端、分块管理器、进度监控器、事件系统、错误处理器</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <h3>核心依赖</h3>
           <p>tokio (异步运行时)、rquest (HTTP 客户端)、quinn/h3 (HTTP/3)、librqbit (BT)、russh (SFTP)</p>
         </div>

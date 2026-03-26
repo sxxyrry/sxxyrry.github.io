@@ -64,11 +64,12 @@
 
       loadStyle("../assets/style.css");
       let scriptArray = [
-        "../assets/AddHeader.js",
+        "/assets/AddHeader.js",
         // "../assets/AddFooter.js",
         `https://footerjs-sxxyrry.pages.dev/footer.js?name=TT23XR%20Studio&description=TT23XR%20Studio&quicks=${encodedQuicks}`,
         // "../assets/AddIco.js",
-        "../assets/AutoRun.js",
+        "/assets/AutoRun.js",
+        "/assets/pointer.js",
       ];
 
       scriptArray.forEach((script) => {
@@ -320,16 +321,16 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
-      <img src="https://images-sxxyrry.pages.dev/TTHSD.png" alt="TTHSD Golang" class="hero-logo">
-      <h1>TTHSD Golang</h1>
-      <p class="tagline">TT 高速下载器 · 初代版本（已停止开发）</p>
+    <section class="hero _target">
+      <img src="https://images-sxxyrry.pages.dev/TTHSD.png" alt="TTHSD Golang" class="hero-logo _target">
+      <h1 class="_target">TTHSD Golang</h1>
+      <p class="tagline _target">TT 高速下载器 · 初代版本（已停止开发）</p>
       <div>
-        <span class="badge deprecated">已停止开发</span>
-        <span class="badge golang">Golang</span>
-        <span class="badge">跨平台</span>
-        <span class="badge">GPL-3.0</span>
-        <span class="badge">版权属于 TT23XR Studio</span>
+        <span class="badge deprecated _target">已停止开发</span>
+        <span class="badge golang _target">Golang</span>
+        <span class="badge _target">跨平台</span>
+        <span class="badge _target">GPL-3.0</span>
+        <span class="badge _target">版权属于 TT23XR Studio</span>
       </div>
       <div class="btn-group">
         <a href="https://github.com/TTHSDownloader/TTHighSpeedDownloader" target="_blank" rel="noopener" class="btn btn-archived">查看仓库</a>
@@ -338,41 +339,41 @@
     </section>
 
     <!-- 历史信息 -->
-    <section class="section">
-      <h2 class="section-title">项目历史</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">2025 年初</div>
-          <p>TTHSD Golang 项目启动，基于 Go 语言开发跨平台下载器核心</p>
+    <section class="section _target">
+      <h2 class="section-title _target">项目历史</h2>
+      <div class="timeline _target">
+        <div class="timeline-item _target">
+          <div class="timeline-date _target">2025 年初</div>
+          <p class="_target">TTHSD Golang 项目启动，基于 Go 语言开发跨平台下载器核心</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-date">开发期间</div>
-          <p>实现了 HTTP/HTTPS 等协议支持，发布 用 Python 构建了 GUI 版本</p>
+        <div class="timeline-item _target">
+          <div class="timeline-date _target">开发期间</div>
+          <p class="_target">实现了 HTTP/HTTPS 等协议支持，发布 用 Python 构建了 GUI 版本</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-date">v0.5.0</div>
-          <p>最后一个发布版本，存在已知 Bug</p>
+        <div class="timeline-item _target">
+          <div class="timeline-date _target">v0.5.0</div>
+          <p class="_target">最后一个发布版本，存在已知 Bug</p>
         </div>
-        <div class="timeline-item end">
-          <div class="timeline-date">2026 年</div>
-          <p>项目停止开发，转向 Rust 重写版本 (TTHSD Next)</p>
+        <div class="timeline-item end _target">
+          <div class="timeline-date _target">2026 年</div>
+          <p class="_target">项目停止开发，转向 Rust 重写版本 (TTHSD Next)</p>
         </div>
       </div>
     </section>
 
     <!-- 功能特性（历史记录） -->
-    <section class="section section-secondary">
-      <h2 class="section-title">曾实现的功能</h2>
-      <div class="features-grid">
-        <div class="feature-card">
+    <section class="section section-secondary _target">
+      <h2 class="section-title _target">曾实现的功能</h2>
+      <div class="features-grid _target">
+        <div class="feature-card _target">
           <h3>🖥️ 跨平台</h3>
           <p>支持 Windows、Linux、macOS 平台</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <h3>⚡ 多线程下载</h3>
           <p>分片并行下载，提高下载速度</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <h3>🔗 多语言绑定</h3>
           <p>Python、C/C++ 等语言可调用</p>
         </div>
@@ -380,38 +381,38 @@
     </section>
 
     <!-- 为何停止开发 -->
-    <section class="section">
-      <h2 class="section-title">为何停止开发？</h2>
-      <div class="info-box">
+    <section class="section _target">
+      <h2 class="section-title _target">为何停止开发？</h2>
+      <div class="info-box _target">
         <strong>技术限制</strong><br>
         Go 语言在以下方面存在限制：
-        <ul>
-          <li><strong>Android 支持</strong>：Go 对 Android NDK 的支持不够完善</li>
-          <li><strong>HarmonyOS 支持</strong>：无法支持华为鸿蒙系统</li>
-          <li><strong>GC 暂停</strong>：Go 的垃圾回收机制可能导致性能波动</li>
-          <li><strong>内存占用</strong>：相比 Rust 内存占用较高</li>
+        <ul class="_target">
+          <li><strong class="_target">Android 支持</strong>：Go 对 Android NDK 的支持不够完善</li>
+          <li><strong class="_target">HarmonyOS 支持</strong>：无法支持华为鸿蒙系统</li>
+          <li><strong class="_target">GC 暂停</strong>：Go 的垃圾回收机制可能导致性能波动</li>
+          <li><strong class="_target">内存占用</strong>：相比 Rust 内存占用较高</li>
         </ul>
       </div>
-      <div class="info-box recommend">
-        <strong>解决方案：TTHSD Next</strong><br>
+      <div class="info-box recommend _target">
+        <strong class="_target">解决方案：TTHSD Next</strong><br>
         使用 Rust 语言重写，解决上述所有问题：
-        <ul>
-          <li>✅ 完美支持 Android (JNI)</li>
-          <li>✅ 独家支持 HarmonyOS</li>
-          <li>✅ 零 GC 暂顿，性能稳定</li>
-          <li>✅ 更低的内存占用</li>
-          <li>✅ 更多协议支持 (HTTP/3, SFTP)</li>
+        <ul class="_target">
+          <li class="_target">✅ 完美支持 Android (JNI)</li>
+          <li class="_target">✅ 独家支持 HarmonyOS</li>
+          <li class="_target">✅ 零 GC 暂顿，性能稳定</li>
+          <li class="_target">✅ 更低的内存占用</li>
+          <li class="_target">✅ 更多协议支持 (HTTP/3, SFTP)</li>
         </ul>
       </div>
     </section>
 
     <!-- 版本对比 -->
-    <section class="section section-secondary">
-      <h2 class="section-title">版本对比</h2>
-      <div class="comparison-box">
-        <div class="comparison-item legacy">
-          <h3>TTHSD Golang (已停止)</h3>
-          <p>
+    <section class="section section-secondary _target">
+      <h2 class="section-title _target">版本对比</h2>
+      <div class="comparison-box _target">
+        <div class="comparison-item legacy _target">
+          <h3 class="_target">TTHSD Golang (已停止)</h3>
+          <p class="_target">
             ❌ 已停止维护<br>
             ❌ 不支持 Android<br>
             ❌ 不支持 HarmonyOS<br>
@@ -420,9 +421,9 @@
             ⚠️ 协议支持有限
           </p>
         </div>
-        <div class="comparison-item next">
-          <h3>TTHSD Next (推荐)</h3>
-          <p>
+        <div class="comparison-item next _target">
+          <h3 class="_target">TTHSD Next (推荐)</h3>
+          <p class="_target">
             ✅ 持续维护更新<br>
             ✅ 支持 Android (JNI)<br>
             ✅ 支持 HarmonyOS (独家)<br>
@@ -435,16 +436,16 @@
     </section>
 
     <!-- 迁移指南 -->
-    <section class="section">
-      <h2 class="section-title">迁移指南</h2>
-      <div class="info-box recommend">
-        <strong>🚀 从 TTHSD Golang 迁移到 TTHSD Next</strong><br><br>
-        <strong>好消息：</strong>API 接口完全兼容！<br><br>
+    <section class="section _target">
+      <h2 class="section-title _target">迁移指南</h2>
+      <div class="info-box recommend _target">
+        <strong class="_target">🚀 从 TTHSD Golang 迁移到 TTHSD Next</strong><br><br>
+        <strong class="_target">好消息：</strong>API 接口完全兼容！<br><br>
         迁移步骤：
-        <ol>
-          <li>下载 TTHSD Next 动态库</li>
-          <li>替换原有的 TTHSD Golang 动态库文件</li>
-          <li>无需修改任何代码即可使用</li>
+        <ol class="_target">
+          <li class="_target">下载 TTHSD Next 动态库</li>
+          <li class="_target">替换原有的 TTHSD Golang 动态库文件</li>
+          <li class="_target">无需修改任何代码即可使用</li>
         </ol>
         <p>
           <a href="tthsd_next.html" class="accent-link">了解 TTHSD Next 更多信息 →</a>

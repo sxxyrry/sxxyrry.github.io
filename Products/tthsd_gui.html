@@ -64,11 +64,12 @@
 
       loadStyle("../assets/style.css");
       let scriptArray = [
-        "../assets/AddHeader.js",
+        "/assets/AddHeader.js",
         // "../assets/AddFooter.js",
         `https://footerjs-sxxyrry.pages.dev/footer.js?name=TT23XR%20Studio&description=TT23XR%20Studio&quicks=${encodedQuicks}`,
         // "../assets/AddIco.js",
-        "../assets/AutoRun.js",
+        "/assets/AutoRun.js",
+        "/assets/pointer.js",
       ];
 
       scriptArray.forEach((script) => {
@@ -339,9 +340,9 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <img src="https://images-sxxyrry.pages.dev/TTHSD_GUI.png" alt="TTHSD GUI" class="hero-logo">
-      <h1>TTHSD GUI</h1>
-      <p class="tagline">TT 高速下载器 · 普通用户友好图形界面版本 （未正式发布）</p>
+      <img src="https://images-sxxyrry.pages.dev/TTHSD_GUI.png" alt="TTHSD GUI" class="hero-logo _target">
+      <h1 class="_target">TTHSD GUI</h1>
+      <p class="tagline _target">TT 高速下载器 · 普通用户友好图形界面版本 （未正式发布）</p>
       <div>
         <span class="badge active">Python</span>
         <span class="badge">PyWebview</span>
@@ -358,28 +359,28 @@
 
     <!-- 产品定位 -->
     <section class="section user-friendly">
-      <h2 class="section-title">为普通用户设计</h2>
-      <div class="info-box">
+      <h2 class="section-title _target">为普通用户设计</h2>
+      <div class="info-box _target">
         <strong>🎯 产品定位</strong><br>
         TTHSD GUI 是基于 TTHSD 核心开发的图形界面版本，专为不需要编程知识的普通用户设计。使用 Python + PyWebview + Flask + Web 技术实现，提供直观易用的下载体验。
       </div>
-      <div class="features-grid">
-        <div class="feature-card">
+      <div class="features-grid _target features-margin">
+        <div class="feature-card _target">
           <div class="feature-icon">🖱️</div>
           <h3>图形化操作</h3>
           <p>无需命令行，通过直观的图形界面完成所有下载操作，适合所有用户</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <div class="feature-icon">📋</div>
           <h3>批量下载</h3>
           <p>支持批量添加下载任务，自动管理下载队列，一键下载多个文件</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <div class="feature-icon">📊</div>
           <h3>实时进度</h3>
           <p>可视化下载进度显示，实时速度、剩余时间一目了然</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <div class="feature-icon">⏸️</div>
           <h3>暂停/恢复</h3>
           <p>支持暂停和恢复下载，断点续传不怕网络中断</p>
@@ -389,60 +390,60 @@
 
     <!-- 技术栈 -->
     <section class="section section-secondary">
-      <h2 class="section-title">技术架构</h2>
-      <div class="tech-stack">
-        <div class="tech-item">
+      <h2 class="section-title _target">技术架构</h2>
+      <div class="tech-stack _target">
+        <div class="tech-item _target">
           <span class="tech-icon">🐍</span>
           <div><strong>Python</strong><br><small>主程序逻辑</small></div>
         </div>
-        <div class="tech-item">
+        <div class="tech-item _target">
           <span class="tech-icon">🌐</span>
           <div><strong>PyWebview</strong><br><small>跨平台 GUI 框架</small></div>
         </div>
-        <div class="tech-item">
+        <div class="tech-item _target">
           <span class="tech-icon">🌶️</span>
           <div><strong>Flask</strong><br><small>Web 服务后端</small></div>
         </div>
-        <div class="tech-item">
+        <div class="tech-item _target">
           <span class="tech-icon">🎨</span>
           <div><strong>HTML/CSS/JS</strong><br><small>前端界面</small></div>
         </div>
-        <div class="tech-item">
+        <div class="tech-item _target">
           <span class="tech-icon">⚙️</span>
           <div><strong>TTHSD Core</strong><br><small>下载核心引擎</small></div>
         </div>
       </div>
-      <div class="info-box note">
+      <div class="info-box note _target">
         <strong>💡 架构说明</strong><br>
         GUI 版本使用 PyWebview 创建原生窗口，Flask 提供本地 Web 服务，前端使用现代 Web 技术构建 UI，后端调用 TTHSD 核心动态库进行下载。
       </div>
     </section>
 
     <!-- 功能特性 -->
-    <section class="section">
-      <h2 class="section-title">主要功能</h2>
-      <div class="features-grid">
-        <div class="feature-card">
+    <section class="section _target">
+      <h2 class="section-title _target">主要功能</h2>
+      <div class="features-grid _target">
+        <div class="feature-card _target">
           <h3>🔗 多协议支持</h3>
           <p>支持 HTTP/HTTPS、FTP、BitTorrent、Magnet、ED2K 等多种下载协议</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <h3>⚡ 多线程下载</h3>
           <p>自动分片多线程下载，充分利用带宽，提升下载速度</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <h3>📁 文件管理</h3>
           <p>自定义保存路径，自动创建目录，智能文件命名</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <h3>🔔 任务通知</h3>
           <p>下载完成通知，错误提醒，任务状态实时更新</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <h3>⚙️ 参数配置</h3>
           <p>可配置线程数、分块大小、User-Agent 等下载参数</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card _target">
           <h3>📜 下载历史</h3>
           <p>记录下载历史，方便查看和管理已下载文件</p>
         </div>
@@ -450,10 +451,10 @@
     </section>
 
     <!-- 下载 -->
-    <section class="section section-secondary">
-      <h2 class="section-title">获取 TTHSD GUI</h2>
-      <div class="download-section">
-        <p class="download-hint">我们还没有发布版本，请等待发布，谢谢理解！</p>
+    <section class="section section-secondary _target">
+      <h2 class="section-title _target">获取 TTHSD GUI</h2>
+      <div class="download-section _target">
+        <p class="download-hint _target">我们还没有发布版本，请等待发布，谢谢理解！</p>
         <!-- <p class="download-hint">选择适合您操作系统的版本</p>
         <div class="download-options">
           <a href="https://github.com/sxxyrry/TTHighSpeedDownloader/releases" target="_blank" rel="noopener" class="download-btn">
@@ -473,19 +474,19 @@
     </section>
 
     <!-- 与核心版本对比 -->
-    <section class="section">
-      <h2 class="section-title">TTHSD GUI vs TTHSD Core</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3 class="feature-title-green">TTHSD GUI</h3>
+    <section class="section _target">
+      <h2 class="section-title _target">TTHSD GUI vs TTHSD Core</h2>
+      <div class="features-grid _target">
+        <div class="feature-card _target">
+          <h3 class="feature-title-green _target">TTHSD GUI</h3>
           <p>✅ 图形界面，无需编程<br>✅ 开箱即用<br>✅ 适合普通用户<br>⚠️ 功能相对固定</p>
         </div>
-        <div class="feature-card">
-          <h3 class="feature-title-accent">TTHSD Core / Next</h3>
+        <div class="feature-card _target">
+          <h3 class="feature-title-accent _target">TTHSD Core / Next</h3>
           <p>✅ 核心下载引擎<br>✅ 高度可定制<br>✅ 多语言绑定<br>⚠️ 需要编程集成</p>
         </div>
       </div>
-      <div class="info-box info-box-tip">
+      <div class="info-box info-box-tip _target">
         <strong>💡 选择建议</strong><br>
         如果您是普通用户，只需要下载功能，推荐使用 <strong>TTHSD GUI</strong>。<br>
         如果您是开发者，需要将下载功能集成到自己的应用中，推荐使用 <strong>TTHSD Core / Next</strong>。
