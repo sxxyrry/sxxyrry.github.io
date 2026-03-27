@@ -905,17 +905,17 @@ const InteractiveEffects = {
                 setTimeout(() => {
                     this.showHint();
                 }, 5000);
+            
+                // 鼠标移动时处理逃逸
+                window.addEventListener('mousemove', (e) => {
+                    if (this.isActive) {
+                        this.handleEscape(e);
+                    }
+                });
+                
+                this.collectElements();
+                this.animate();
             }
-            
-            // 鼠标移动时处理逃逸
-            window.addEventListener('mousemove', (e) => {
-                if (this.isActive) {
-                    this.handleEscape(e);
-                }
-            });
-            
-            this.collectElements();
-            this.animate();
         },
         
         showHint() {
@@ -982,7 +982,7 @@ const InteractiveEffects = {
         
         collectElements() {
             this.elements = [];
-            const selectors = '.project-card, .team-card, .showcase-card, .btn, .nav-link, .tag, .skill-tag, .link-btn, .member-avatar, h2, h3';
+            const selectors = '.project-card, .team-card, .showcase-card, .btn, .nav-link, .tag, .skill-tag, .link-btn, .member-avatar, h2, h3, *';
             document.querySelectorAll(selectors).forEach((el, i) => {
                 const rect = el.getBoundingClientRect();
                 this.elements.push({
@@ -1019,10 +1019,10 @@ const InteractiveEffects = {
                     const angle = Math.atan2(dy, dx);
                     
                     // 添加一些随机性，让逃逸更有趣
-                    const randomAngle = angle + (Math.random() - 0.5) * 0.5;
+                    const randomAngle = (angle + (Math.random() - 0.5) * 0.5) * 200;
                     
-                    item.vx += Math.cos(randomAngle) * escapeForce * 15;
-                    item.vy += Math.sin(randomAngle) * escapeForce * 15;
+                    item.vx += (Math.cos(randomAngle) * escapeForce * 15) * 500;
+                    item.vy += (Math.sin(randomAngle) * escapeForce * 15) * 500;
                     
                     // 添加抖动效果
                     item.wobble += 0.5;
@@ -1062,7 +1062,7 @@ const InteractiveEffects = {
                 item.y += item.vy;
                 
                 // 限制最大位移
-                const maxDist = 150;
+                const maxDist = 9999999999;
                 const dist = Math.sqrt(item.x * item.x + item.y * item.y);
                 if (dist > maxDist) {
                     item.x = (item.x / dist) * maxDist;
@@ -1083,7 +1083,7 @@ const InteractiveEffects = {
                         rotation: rotation
                     });
                 } else {
-                    item.el.style.transform = `translate(${item.x + wobbleX}px, ${item.y + wobbleY}px) rotate(${rotation}deg)`;
+                    item.el.style.transform = `translate(${(item.x + wobbleX) * 10000}px, ${(item.y + wobbleY) * 10000}px) rotate(${rotation}deg)`;
                 }
             });
             
@@ -3688,7 +3688,7 @@ const InteractiveEffects = {
             
             // 核心效果初始化
             this.glitchEffect.init();     // 全息故障
-            this.aprilFoolsEscape.init(); // 元素逃逸
+            // this.aprilFoolsEscape.init(); // 元素逃逸
             this.gravityFlip.init();      // 重力翻转
             this.laserConnect.init();     // 激光连线
             
