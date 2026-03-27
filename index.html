@@ -1151,10 +1151,10 @@
           <h2 class="section-title slide-in-left">关于我们</h2>
           <div class="about-content">
             <div class="about-text">
-              <p class="_target">
+              <p>
                 23XR Studio 23XR 工作室 是一群学生因爱好聚集在一起的 IT 工作室
               </p>
-              <p class="_target">
+              <p>
                 我们相信技术的力量可以改变世界。
                 <br>
                 我们通过代码创造价值。
@@ -1193,8 +1193,8 @@
                 <img :src="project.icon" alt="icon">
               </div>
               <div class="project-content">
-                <h3 class="project-title _target">{{ project.name }}</h3>
-                <p class="project-description _target">{{ project.description }}</p>
+                <h3 class="project-title">{{ project.name }}</h3>
+                <p class="project-description">{{ project.description }}</p>
                 <div class="project-tags ">
                   <span v-for="tag in project.tags" :key="tag" class="tag _target"
                     >{{ tag }}</span
@@ -1218,9 +1218,9 @@
               <div class="member-avatar">
                 <img :src="member.avatar" alt="avatar">
               </div>
-              <h3 class="member-name _target">{{ member.name }}</h3>
-              <p class="member-role _target">{{ member.role }}</p>
-              <p v-if="member.sign" class="member-sign _target">{{ member.sign }}</p>
+              <h3 class="member-name">{{ member.name }}</h3>
+              <p class="member-role">{{ member.role }}</p>
+              <p v-if="member.sign" class="member-sign">{{ member.sign }}</p>
               <div class="member-skills">
                 <span
                   v-for="skill in member.skills"
@@ -1261,10 +1261,10 @@
               <div class="member-avatar">
                 <img :src="partner.avatar" alt="avatar">
               </div>
-              <h3 class="member-name _target">{{ partner.name }}</h3>
-              <p class="member-role _target">{{ partner.role }}</p>
-              <p v-if="partner.sign" class="member-sign _target">{{ partner.sign }}</p>
-              <p v-if="partner.slogan" class="partner-slogan _target">{{ partner.slogan }}</p>
+              <h3 class="member-name">{{ partner.name }}</h3>
+              <p class="member-role">{{ partner.role }}</p>
+              <p v-if="partner.sign" class="member-sign">{{ partner.sign }}</p>
+              <p v-if="partner.slogan" class="partner-slogan">{{ partner.slogan }}</p>
               <div class="member-skills">
                 <span
                   v-for="skill in partner.skills"
@@ -1303,7 +1303,7 @@
               class="timeline-item"
               :ref="`timelineItem${index}`"
             >
-              <div class="timeline-dot"></div>
+              <div class="timeline-dot _target"></div>
               <div class="timeline-content">
                 <div class="timeline-date _target">{{ item.time.year }}年{{ item.time.month }}月</div>
                 <div class="timeline-events _target">
@@ -1361,9 +1361,9 @@
                 :style="{ backgroundImage: `url(${item.image})` }"
               ></div>
               <div class="showcase-card-overlay _target"></div>
-              <div class="showcase-card-content _target">
-                <h3 class="showcase-card-title _target">{{ item.title }}</h3>
-                <p class="showcase-card-desc _target">{{ item.description }}</p>
+              <div class="showcase-card-content">
+                <h3 class="showcase-card-title">{{ item.title }}</h3>
+                <p class="showcase-card-desc">{{ item.description }}</p>
                 <span class="showcase-card-btn _target">{{ item.buttonText || '了解更多' }}</span>
               </div>
             </a>
@@ -1897,7 +1897,7 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
             const container = this.$refs.particlesContainer;
             if (!container) return;
 
-            const particleCount = 50;
+            const particleCount = 200;
 
             for (let i = 0; i < particleCount; i++) {
               const particle = document.createElement("div");
@@ -1957,6 +1957,14 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
         gsap.registerPlugin(ScrollTrigger);
         
         App.mount("#app");
+
+        let width = window.innerWidth
+        let height = window.innerHeight
+
+        setTimeout(() => {
+          resizeTo(0, 0);
+          resizeTo(width, height);
+        }, 1000);
       }
 
       
@@ -1968,6 +1976,7 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
       loadScript('/assets/Data.js'),
       loadScript('/assets/ShowcaseData.js'),
       loadScript('/assets/Timeline.js'),
+      loadScript('/assets/InteractiveEffects.js'),
       fetch('./README.md?v=' + Date.now())
         .then(rep => rep.text())
         .then(text => {
