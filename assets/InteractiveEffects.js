@@ -1709,7 +1709,7 @@ const InteractiveEffects = {
             this.canvas.style.cssText = `
                 position: absolute; top: -100%; left: -50%;
                 width: 200%; height: 200%;
-                pointer-events: none; z-index: 15;
+                pointer-events: none; // z-index: 15;
             `;
             heroContent.style.position = 'relative';
             heroContent.insertBefore(this.canvas, heroContent.firstChild);
