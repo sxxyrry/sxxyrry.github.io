@@ -1459,11 +1459,6 @@ const InteractiveEffects = {
         hint.innerHTML = `
             <div style="font-size: 1.3rem; margin-bottom: 15px; color: #80ffff;">交互效果快捷键</div>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; text-align: left; font-size: 0.9rem;">
-                <span><b style="color:#8080ff">F</b> - 磁流体模拟</span>
-                <!-- <span><b style="color:#ff80ff">W</b> - 虫洞传送门</span> -->
-                <!-- <span><b style="color:#ff00ff">C</b> - 赛博朋克城市</span> -->
-                <!-- <span><b style="color:#00ffff">L</b> - 激光连线</span> -->
-                <!-- <span><b style="color:#00ff88">↑↑↓↓BA</b> - 彩蛋</span> -->
                 <span><b style="color:#ffff00">G</b> - 重力翻转</span>
             </div>
             <div style="margin-top: 12px; font-size: 0.8rem; opacity: 0.7;">点击页面触发脉冲 | 移动鼠标探索效果</div>
