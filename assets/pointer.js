@@ -5,7 +5,7 @@
  * 
  * Use GNU AGPLv3 License.
  * 
- * This file is part of 23XRStudio.
+ * This file is part of TT23XRStudio.
  */
 
 `
