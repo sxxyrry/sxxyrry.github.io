@@ -1422,7 +1422,7 @@ const InteractiveEffects = {
             this.konamiCode.init();
             
             // 核心效果初始化
-            this.glitchEffect.init();     // 全息故障
+            // this.glitchEffect.init();     // 全息故障
             this.gravityFlip.init();      // 重力翻转
             
             // 新增震撼效果（默认启用）
