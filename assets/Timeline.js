@@ -64,4 +64,13 @@ const TimeLine = [
             '工作室正式更名为 TT23XR Studio',
         ],
     },
+    {
+        'time': {
+            'year': '2026',
+            'month': '4',
+        },
+        'event': [
+            'TTHSD Next 项目更名为 TLD 项目',
+        ],
+    },
 ]

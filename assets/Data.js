@@ -9,19 +9,19 @@ const projectsData = [
     },
     {
         id: 2,
-        name: " TTHSD TT 高速下载器",
+        name: "TLD 泰勒下载器",
         description: "一个 跨平台，高性能，多语言可调用 的 下载器",
         tags: ["Rust", "Golang（旧版）"],
-        icon: "https://images-sxxyrry.pages.dev/TTHSD.png",
-        link: "/Products/tthsd.html",
+        icon: "https://images-sxxyrry.pages.dev/TLD.png",
+        link: "/Products/Disambiguation/tld.html",
     },
     {
         id: 3,
-        name: " TTHSD GUI TT 高速下载器 GUI",
-        description: " TTHSD 下载器的 官方 GUI 实现",
+        name: " TLD GUI 泰勒下载器 GUI",
+        description: " TLD 下载器的 官方 GUI 实现",
         tags: ["Python", "Web", "Rust（下载捕获器）", "JavaScript（浏览器扩展）"],
-        icon: "https://images-sxxyrry.pages.dev/TTHSD_GUI.png",
-        link: "/Products/tthsd_gui.html",
+        icon: "https://images-sxxyrry.pages.dev/TLD_GUI_Bigger.png",
+        link: "/Products/tld_gui.html",
     },
 ];
 
