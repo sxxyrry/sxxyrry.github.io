@@ -12,7 +12,7 @@ const projectsData = [
         name: "TLD 泰勒下载器",
         description: "一个 跨平台，高性能，多语言可调用 的 下载器",
         tags: ["Rust", "Golang（旧版）"],
-        icon: "https://images-sxxyrry.pages.dev/TLD.png",
+        icon: "https://images-sxxyrry.pages.dev/TLD_Bigger.png",
         link: "/Products/Disambiguation/tld.html",
     },
     {
@@ -22,6 +22,14 @@ const projectsData = [
         tags: ["Python", "Web", "Rust（下载捕获器）", "JavaScript（浏览器扩展）"],
         icon: "https://images-sxxyrry.pages.dev/TLD_GUI_Bigger.png",
         link: "/Products/tld_gui.html",
+    },
+    {
+        id: 4,
+        name: "KossJS",
+        description: "是一个高性能、跨平台、嵌入式的 JavaScript 运行时引擎。",
+        tags: ["Rust"],
+        icon: "https://images-sxxyrry.pages.dev/KossJS_Bigger.png",
+        link: "/Products/kossjs.html",
     },
 ];
 
