@@ -1148,13 +1148,13 @@
 
         <!-- 关于我们 -->
         <section id="about" class="about">
-          <h2 class="section-title slide-in-left">关于我们</h2>
+          <h2 class="section-title slide-in-left _target">关于我们</h2>
           <div class="about-content">
             <div class="about-text">
-              <p>
-                23XR Studio 23XR 工作室 是一群学生因爱好聚集在一起的 IT 工作室
+              <p class="_target">
+                TT23XR Studio TT23XR 工作室 是一群学生因爱好聚集在一起的 IT 工作室
               </p>
-              <p>
+              <p class="_target">
                 我们相信技术的力量可以改变世界。
                 <br>
                 我们通过代码创造价值。
@@ -1177,7 +1177,7 @@
 
         <!-- 项目展示 -->
         <section id="projects" class="projects">
-          <h2 class="section-title slide-in-right">项目展示</h2>
+          <h2 class="section-title slide-in-right _target">项目展示</h2>
           <div class="project-grid">
             <a
               v-for="(project, index) in projects"
@@ -1207,7 +1207,7 @@
 
         <!-- 团队成员 -->
         <section id="team" class="team">
-          <h2 class="section-title slide-in-left">团队成员</h2>
+          <h2 class="section-title slide-in-left _target">团队成员</h2>
           <div class="team-grid">
             <div
               v-for="(member, index) in teamMembers"
@@ -1250,7 +1250,7 @@
 
         <!-- 合作者 -->
         <section id="partners" class="partners">
-          <h2 class="section-title slide-in-right">合作者</h2>
+          <h2 class="section-title slide-in-right _target">合作者</h2>
           <div class="team-grid">
             <div
               v-for="(partner, index) in partners"
@@ -1294,7 +1294,7 @@
 
         <!-- 时间线 -->
         <section id="timeline" class="timeline">
-          <h2 class="section-title slide-in-left">发展历程</h2>
+          <h2 class="section-title slide-in-left _target">发展历程</h2>
           <div class="timeline-container">
             <div class="timeline-line"></div>
             <div
@@ -1308,7 +1308,7 @@
                 <div class="timeline-date _target">{{ item.time.year }}年{{ item.time.month }}月</div>
                 <div class="timeline-events _target">
                   <div v-for="(event, eventIndex) in item.event" :key="eventIndex" class="timeline-event">
-                    {{ event }}
+                    <span v-html="parseMarkdown(event)"></span>
                   </div>
                 </div>
               </div>
@@ -1320,7 +1320,7 @@
 
         <!-- 推荐模块 -->
         <section v-if="showcaseItems.length > 0" class="showcase-section" ref="showcaseSection">
-          <h2 class="section-title slide-in-left">推荐</h2>
+          <h2 class="section-title slide-in-left _target">推荐</h2>
           
           <!-- 广告拦截器检测提示 - 只有被拦截时显示 -->
           <div v-if="showcaseBlocked" class="adblock-notice _target">
@@ -1372,7 +1372,7 @@
 
         <!-- 联系我们 -->
         <section id="contact" class="contact">
-          <h2 class="section-title slide-in-rightc_target">联系我们</h2>
+          <h2 class="section-title slide-in-right _target">联系我们</h2>
           <div class="contact-content _target">
             <p>
               如果您对我们的项目感兴趣，或者想了解更多关于我们工作室的信息，请随时与我们联系。
@@ -1948,6 +1948,9 @@ list(map(R,map(int, str(1<< 10))))".split("\n")
               ease: "sine.inOut",
             });
           },
+          parseMarkdown(text) {
+            return marked.parseInline(text);
+          }
         },
       })
 
